@@ -68,6 +68,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE38E7DA285CD72700021DD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE38E7DC285CD73300021DD4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE692B802822BFDF00F9728A /* TabBarView.swift */,
+				FE3A436E28229D5B006F6F16 /* ContentView.swift */,
+				FE989D7E282D4D10009937D4 /* RepeatView */,
+				FE3A43812822A09B006F6F16 /* RunningData */,
+				FE3A43842822A0E8006F6F16 /* Settings */,
+				FE3A437A28229D87006F6F16 /* StartRunning */,
+				FE3A437D28229E12006F6F16 /* IncisedView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE38E7DE285CD76E00021DD4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FE3A436028229D5B006F6F16 = {
 			isa = PBXGroup;
 			children = (
@@ -88,12 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				FE3A436C28229D5B006F6F16 /* RunningApp.swift */,
-				FE3A436E28229D5B006F6F16 /* ContentView.swift */,
-				FE692B802822BFDF00F9728A /* TabBarView.swift */,
-				FE3A437A28229D87006F6F16 /* StartRunning */,
-				FE3A43812822A09B006F6F16 /* RunningData */,
-				FE3A43842822A0E8006F6F16 /* Settings */,
-				FE3A437D28229E12006F6F16 /* IncisedView */,
+				FE38E7DC285CD73300021DD4 /* View */,
+				FE38E7DA285CD72700021DD4 /* Model */,
+				FE38E7DE285CD76E00021DD4 /* ViewModel */,
 				FE3A437028229D5C006F6F16 /* Assets.xcassets */,
 				FE3A437228229D5C006F6F16 /* Preview Content */,
 			);
@@ -111,7 +136,6 @@
 		FE3A437A28229D87006F6F16 /* StartRunning */ = {
 			isa = PBXGroup;
 			children = (
-				FE989D7E282D4D10009937D4 /* RepeatView */,
 				FE3A437B28229DA1006F6F16 /* Start.swift */,
 				FE692B822822C2F400F9728A /* ButtonRectangle.swift */,
 				FE692B842822C93400F9728A /* LeftButton.swift */,
