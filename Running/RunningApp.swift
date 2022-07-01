@@ -12,8 +12,9 @@ struct RunningApp: App {
     @StateObject private var state = StateOfSomething()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(state)
+            LandingView()
+//            ContentView()
+//                .environmentObject(state)
         }
     }
 }

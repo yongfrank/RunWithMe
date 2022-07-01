@@ -38,7 +38,7 @@ struct Start: View {
                                     Text("左侧").font(.custom("PingFang SC Semibold", size: 48)).tracking(-0.41)
                                     Text("Left").font(.custom("PingFang SC Regular", size: 14)).tracking(-0.41)
                                 }
-                                .foregroundColor(.primary)
+//                                .foregroundColor(.white)
                             }
                         }
                         Spacer()
@@ -53,7 +53,7 @@ struct Start: View {
                                     Text("右侧").font(.custom("PingFang SC Semibold", size: 48)).tracking(-0.41)
                                     Text("Right").font(.custom("PingFang SC Regular", size: 14)).tracking(-0.41)
                                 }
-                                .foregroundColor(.primary)
+//                                .foregroundColor(.white)
                             }
                         }
                     }
@@ -100,6 +100,8 @@ struct Start: View {
                                     .foregroundColor(.primary)
                             }
                         }
+                        Spacer()
+                        
                         VStack {
                             Slider(value: $speed, in: 0...600)
 //                                .padding(.bottom, 20)
@@ -107,6 +109,9 @@ struct Start: View {
                                 .font(.caption)
                         }
                         .offset(y: -5)
+                        .frame(width: 225)
+                        
+                        Spacer()
                         Button {
                             speed += 20
                         } label: {

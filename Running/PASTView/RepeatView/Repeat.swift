@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct Repeat: View {
-    @State var timeRemaining = 3
+    @State var timeRemaining = 4
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var startTimmer = 1
+    @State var startTimmer = 0
     
     var body: some View {
         VStack {
@@ -30,19 +30,23 @@ struct Repeat: View {
                 }
             } else if startTimmer == 1 {
                 Text("\(timeRemaining)")
-                    .onReceive(timer) { _ in
-                        if timeRemaining > 0 {
-                            timeRemaining -= 1
-                        }
-                        if timeRemaining == 0 {
-                           startTimmer = 2
-                        }
-                    }
+                    
                     .font(.custom("PingFang SC Semibold", size: 64)).foregroundColor(Color(#colorLiteral(red: 0.87, green: 0.09, blue: 0.46, alpha: 1)))
             } else if startTimmer == 2 {
                 RunningView()
             }
             
+        }
+        .onReceive(timer) { _ in
+            if startTimmer == 0 {
+                startTimmer += 1
+            }
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+            }
+            if timeRemaining == 0 {
+               startTimmer = 2
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(RadialGradient(
