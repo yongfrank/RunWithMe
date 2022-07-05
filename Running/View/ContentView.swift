@@ -43,8 +43,6 @@ struct ContentView: View {
                     TabBarView()
     //                TabBarView(selectedIndex: $state.selectedIndex)
                 }
-                
-                
             } else {
                 Repeat()
                     .environmentObject(state)
@@ -62,5 +60,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(state)
+            .previewDevice("iPhone 13")
     }
 }

@@ -75,6 +75,7 @@ struct LandingView: View {
                     VStack {
                         // Ellipse 433
                         // Ellipse 433
+                        ZStack {
                         Circle()
                             .fill(RadialGradient(
                                 gradient: Gradient(stops: [
@@ -86,6 +87,10 @@ struct LandingView: View {
                                 endRadius: 212.5459606136431
                             ))
                             .frame(width: 109, height: 109)
+                            Image("loginMan")
+                                .resizable()
+                                .frame(width: 110, height: 110)
+                        }
                         // User Name Here
                         Text(vm.user.name)
                             .font(.custom("PingFang SC Regular", size: 16))

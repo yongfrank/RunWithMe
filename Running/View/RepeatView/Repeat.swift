@@ -10,12 +10,12 @@ import SwiftUI
 struct Repeat: View {
     @State var timeRemaining = 4
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var startTimmer = 0
+    @State var startTimer = 0
     
     var body: some View {
         VStack {
-            
-            if startTimmer == 0 {
+            /// startTimer = 0, Show info, startTimer = 1, show count down, startTimer = 2, show Running View
+            if startTimer == 0 {
                 VStack {
                     //开始跑步
                     Text("开始跑步").font(.custom("PingFang SC Semibold", size: 36)).foregroundColor(Color(#colorLiteral(red: 0.87, green: 0.09, blue: 0.46, alpha: 1))).tracking(-0.41)
@@ -28,24 +28,23 @@ struct Repeat: View {
                     //配速4mins20s
                     Text("配速").font(.custom("PingFang SC Regular", size: 20)).foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4))).tracking(-0.41) + Text("4mins20s").font(.custom("PingFang SC Medium", size: 20)).foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.4))).tracking(-0.41)
                 }
-            } else if startTimmer == 1 {
+            } else if startTimer == 1 {
                 Text("\(timeRemaining)")
                     
                     .font(.custom("PingFang SC Semibold", size: 64)).foregroundColor(Color(#colorLiteral(red: 0.87, green: 0.09, blue: 0.46, alpha: 1)))
-            } else if startTimmer == 2 {
+            } else if startTimer == 2 {
                 RunningView()
             }
-            
         }
         .onReceive(timer) { _ in
-            if startTimmer == 0 {
-                startTimmer += 1
+            if startTimer == 0 {
+                startTimer += 1
             }
             if timeRemaining > 0 {
                 timeRemaining -= 1
             }
             if timeRemaining == 0 {
-               startTimmer = 2
+               startTimer = 2
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

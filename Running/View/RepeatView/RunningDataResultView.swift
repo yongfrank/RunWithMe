@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RunningData: View {
+struct RunningDataResultView: View {
     @EnvironmentObject var state: StateOfSomething
     var body: some View {
         NavigationView {
@@ -33,6 +33,6 @@ struct RunningData: View {
 
 struct RunningData_Previews: PreviewProvider {
     static var previews: some View {
-        RunningData()
+        RunningDataResultView()
     }
 }
