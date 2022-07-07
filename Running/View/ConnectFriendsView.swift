@@ -52,6 +52,7 @@ struct ConnectFriendsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ConnectFriendsView()
+                .previewDevice("iPhone 13")
         }
     }
 }

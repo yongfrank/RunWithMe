@@ -5,6 +5,7 @@
 //  Created by Frank Chu on 5/12/22.
 //
 
+
 import SwiftUI
 import CoreMotion
 import AVFoundation
@@ -34,21 +35,6 @@ class MotionManager: ObservableObject {
         motionManger.stopDeviceMotionUpdates()
     }
 }
-struct SoundManager {
-    let leftUtterance = AVSpeechUtterance(string: "正在向左偏")
-    let rightUtterance = AVSpeechUtterance(string: "正在向右偏")
-    func playSound(utterance: AVSpeechUtterance) {
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-cn")
-        AVSpeechSynthesizer().speak(utterance)
-    }
-    
-    func playDegree(direction: String, degree: Double) {
-        
-        let utterance = AVSpeechUtterance(string: "\(direction)....\(degree)度")
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-cn")
-        AVSpeechSynthesizer().speak(utterance)
-    }
-}
 
 struct RunningView: View {
     @EnvironmentObject var state: StateOfSomething
@@ -59,10 +45,11 @@ struct RunningView: View {
 
     var body: some View {
         ZStack {
-//            Image("runMap")
-//                .resizable()
-//                .scaledToFill()
             MapView()
+            
+            //            Image("runMap")
+            //                .resizable()
+            //                .scaledToFill()
             VStack {
                 if state.buttonState == "Pause" {
                 HStack {
@@ -170,6 +157,23 @@ struct RunningView: View {
     }
     
 }
+
+struct SoundManager {
+    let leftUtterance = AVSpeechUtterance(string: "正在向左偏")
+    let rightUtterance = AVSpeechUtterance(string: "正在向右偏")
+    func playSound(utterance: AVSpeechUtterance) {
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-cn")
+        AVSpeechSynthesizer().speak(utterance)
+    }
+    
+    func playDegree(direction: String, degree: Double) {
+        
+        let utterance = AVSpeechUtterance(string: "\(direction)....\(degree)度")
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-cn")
+        AVSpeechSynthesizer().speak(utterance)
+    }
+}
+
 
 struct RunningView_Previews: PreviewProvider {
     static let state = StateOfSomething()

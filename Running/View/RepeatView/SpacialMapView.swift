@@ -5,9 +5,9 @@
 //  Created by Frank Chu on 7/5/22.
 //
 
+import AVFoundation
 import CoreMotion
 import SwiftUI
-import AVFoundation
 
 struct SpacialMapView: View {
     @EnvironmentObject var state: StateOfSomething
@@ -50,9 +50,19 @@ struct SpacialMapView: View {
                     .padding()
                 }
                 .padding(.top, 40)
-                
+
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color(#colorLiteral(red: 0.8745098114013672, green: 0.09411764144897461, blue: 0.46122294664382935, alpha: 1)))
+                        .frame(width: 180, height: 68)
+                        .shadow(color: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.15000000596046448)), radius: 4, x: 0, y: 4)
+//                    Text("正在偏移: \(vm.yaw * 180 / .pi)")
+                    Text(vm.yaw * 180 / .pi >= 0 ? String(format: "向左偏移: %.2fº", vm.yaw * 180 / .pi) : String(format: "向右偏移: %.2fº", -vm.yaw * 180 / .pi))
+                        .font(.custom("PingFang SC Semibold", size: 20)).foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))).tracking(-0.41)
+                }
+
                 Spacer()
-                
+
                 Button {
                     state.buttonState = "PauseView"
                 } label: {
@@ -69,8 +79,8 @@ struct SpacialMapView: View {
     }
 }
 
-//struct SpacialMapView_Previews: PreviewProvider {
+// struct SpacialMapView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        SpacialMapView()
 //    }
-//}
+// }
