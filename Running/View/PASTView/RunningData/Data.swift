@@ -11,7 +11,7 @@ struct Data: View {
     var body: some View {
         NavigationView {
             VStack {
-                DataPreview()
+                DataView()
 //                    .frame(width: 350, height: 900)
                     .navigationBarHidden(true)
             }

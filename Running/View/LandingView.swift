@@ -102,7 +102,7 @@ struct LandingView: View {
 
                     // Login Button
                     NavigationLink {
-                        ConnectView()
+                        ConnectFriendsView()
                     } label: {
                         ZStack {
                             // Rectangle 7

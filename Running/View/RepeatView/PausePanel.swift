@@ -70,6 +70,10 @@ struct PausePanel: View {
                         VStack {
                             // 跑步结束
                             Button {
+                                
+                                //结束发送通知到地图页面，
+                                NotificationCenter.default.post(name: NSNotification.Name("STOPRUN"), object: nil)
+                                
                                 state.buttonState = "End"
                             } label: {
                                 VStack {
@@ -101,6 +105,10 @@ struct PausePanel: View {
                         Spacer()
                         VStack {
                             Button {
+                                
+                                //继续发送通知到地图页面，
+                                NotificationCenter.default.post(name: NSNotification.Name("STARTRUN"), object: nil)
+                                
                                 // Pause means show slide to pause
                                 state.buttonState = "Pause"
                             } label: {

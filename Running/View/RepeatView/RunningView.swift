@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UIKit
 import CoreMotion
 import AVFoundation
 
@@ -45,8 +46,10 @@ struct RunningView: View {
 
     var body: some View {
         ZStack {
-            MapView()
             
+            MapViewController()
+            
+//            MapView()
             //            Image("runMap")
             //                .resizable()
             //                .scaledToFill()
@@ -90,6 +93,10 @@ struct RunningView: View {
                 
                 if state.buttonState == "Pause" {
                     Button {
+                        
+                        //暂停发送通知到地图页面，
+                        NotificationCenter.default.post(name: NSNotification.Name("PAUSERUN"), object: nil)
+                        
                         state.buttonState = "PauseView"
                     } label: {
                         Image("slide to pause")
@@ -119,11 +126,14 @@ struct RunningView: View {
                             .padding(.bottom, 25)
                     }
                 } else if state.buttonState == "Data" {
+                    
                     RunningDataResultView()
                     
                 } else if state.buttonState == "Spacial" {
                     SpacialMapView()
                         .environmentObject(motionHandler)
+                } else if state.buttonState == "DataResult"{
+                    DataResultView()
                 }
             }
         }

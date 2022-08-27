@@ -16,9 +16,11 @@ struct RunningDataResultView: View {
                     .resizable()
                     .scaledToFill()
                 Button {
-                    state.isInRunningView = false
-                    state.selectedIndex = 1
-                    state.buttonState = "Pause"
+//                    state.isInRunningView = false
+//                    state.selectedIndex = 1
+//                    state.buttonState = "Pause"
+                    
+                    state.buttonState = "DataResult"
                 } label: {
                     Image("doneButton")
                         .resizable()
