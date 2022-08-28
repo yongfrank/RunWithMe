@@ -21,30 +21,31 @@ struct SettingsView: View {
         NavigationView {
             ScrollView {
                 HStack(alignment: .center) {
-                    if let user = vm.currentUser {
+                    if let user = vm.currentLogInUser {
                         KFImage(URL(string: user.profileImageUrl))
                             .resizable()
-                            .frame(width: 76, height: 76)
                             .scaledToFill()
+                            .frame(width: 76, height: 76)
                             .cornerRadius(64)
-//                            .overlay(
-//                                RoundedRectangle(cornerRadius: 64)
-//                                    .stroke(.black, lineWidth: 0.3)
-//                            )
+                            .overlay(
+                                DetailedView.overlayBorder()
+                            )
                     } else {
                         Image(UserInformation.EXAMPLE.profileImageUrl)
                             .resizable()
                             .frame(width: 76, height: 76)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 64)
-                                    .stroke(.black, lineWidth: 0.3)
+                                DetailedView.overlayBorder()
                             )
                     }
                     
-                    Text(vm.currentUser?.username ?? "")
+                    Text(vm.currentLogInUser?.username ?? "")
                         .font(.custom("PingFang SC Regular", size: 25))
                         .padding(.horizontal)
                         .frame(minWidth: 80)
+                    
+                    
+                    
                     Button {
                         self.isEditMode = true
                     } label: {
@@ -56,6 +57,13 @@ struct SettingsView: View {
                 .padding(.horizontal, 25)
                 .padding(.top, 50)
                 .padding(.bottom, 73)
+                
+                NavigationLink() {
+                    DebugPageView()
+                } label: {
+                    ButtonViewTemplate.barButtonView(name: "软件测试")
+                        .frame(width: 311, height: 67)
+                }
                 
                 NavigationLink() {
                     FriendsList()
@@ -96,60 +104,10 @@ struct SettingsView: View {
     }
 }
 
-struct EditMode: View {
-    @EnvironmentObject var vm: MainPageViewMode
-    
-    @State private var username: String = ""
-    @State private var inputImage: UIImage?
-    
-    @State private var isShowingImage = false
-    @Environment(\.dismiss) var dismiss
-    
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                Button {
-                    isShowingImage.toggle()
-                } label: {
-                    EmailLogin.avaterChoice(image: inputImage)
-                }
-                
-                TextField("", text: $username)
-                    .textFieldStyle(.roundedBorder)
-                    .textInputAutocapitalization(.never)
-                    .disableAutocorrection(true)
-                    .padding()
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("取消") {
-                        dismiss()
-                    }
-                }
-                ToolbarItem {
-                    Button("完成") {
-                        dismiss()
-                    }
-                    .foregroundColor(.blue)
-                }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("编辑信息")
-        }
-        .onAppear {
-            username = self.vm.currentUser?.username ?? ""
-        }
-        .fullScreenCover(isPresented: $isShowingImage, content: {
-            ImagePicker(image: $inputImage)
-        })
-    }
-}
-
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
             .environmentObject(MainPageViewMode())
-        EditMode()
-            .environmentObject(MainPageViewMode())
+
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FriendsList.swift
+//  DebugPageView.swift
 //  Running
 //
 //  Created by Frank Chu on 8/28/22.
@@ -8,19 +8,27 @@
 import SwiftUI
 import Kingfisher
 
-
-struct FriendsList: View {
+struct DebugPageView: View {
     @EnvironmentObject var vm: MainPageViewMode
-    
     let layoutGrid = [GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
         ScrollView {
+            Text("id: \(vm.currentLogInUser?.id ?? "Unknown")")
+            Text("uid: \(vm.currentLogInUser?.uid ?? "Unkown")")
+            Text("email: \(vm.currentLogInUser?.email ?? "Unkown")")
+            Text("url: \(vm.currentLogInUser?.profileImageUrl ?? "Unkown")")
+            Text("username: \(vm.currentLogInUser?.username ?? "Unkown")")
             
             LazyVGrid(columns: layoutGrid) {
                 ForEach(vm.users) { user in
                     if vm.currentLogInUser?.uid != user.uid {
-                        FriendsAvater(user: user)
-                            .accessibilityElement(children: .combine)
+                        Button {
+                            vm.handleSignOut()
+                            vm.loginUserWithEmail(email: user.email, password: "123123")
+                        } label: {
+                            FriendsAvater(user: user)
+                                .accessibilityElement(children: .combine)
+                        }
                     }
                 }
             }
@@ -30,9 +38,9 @@ struct FriendsList: View {
     }
 }
 
-struct FriendsList_Previews: PreviewProvider {
+struct DebugPageView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsList()
+        DebugPageView()
             .environmentObject(MainPageViewMode())
     }
 }
@@ -42,7 +50,6 @@ fileprivate struct FriendsAvater: View {
     
     var body: some View {
         ZStack {
-            
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color(#colorLiteral(red: 1, green: 0.675000011920929, blue: 0.8278836607933044, alpha: 1)))
                 .frame(width: 144, height: 137)
@@ -56,15 +63,10 @@ fileprivate struct FriendsAvater: View {
                 Text(user.username)
                     .font(.custom("PingFang SC Regular", size: 16))
                     .tracking(-0.41)
+                Text(user.email)
             }
             
         }
         .frame(width: 144, height: 137)
-    }
-}
-
-struct FriendsAvater_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendsAvater(user: .accountExample)
     }
 }

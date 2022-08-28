@@ -103,7 +103,9 @@ struct RunningView: View {
                             .resizable()
                             .scaledToFit()
                             .padding(.bottom, 30)
+                            .accessibilityLabel("暂停跑步")
                     }
+                    
                 } else if state.buttonState == "PauseView" {
                     PausePanel()
 //                    Button {
@@ -111,7 +113,7 @@ struct RunningView: View {
 //                    } label: {
 //                        Image("PausePanel")
 //                            .resizable()
-//                            .scaledToFit()
+//                            .scaledToFill()
 //                            .padding(.bottom, 30)
 //                    }
                     Spacer()
@@ -122,7 +124,7 @@ struct RunningView: View {
                     } label: {
                         Image("slide to end")
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                             .padding(.bottom, 25)
                     }
                 } else if state.buttonState == "Data" {

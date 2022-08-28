@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct RunningApp: App {
-    @StateObject private var state = StateOfSomething()
+    @StateObject var state = StateOfSomething()
     @StateObject var viewModel = MainPageViewMode()
 
     var body: some Scene {

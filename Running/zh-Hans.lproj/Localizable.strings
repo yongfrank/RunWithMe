@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Running
+
+  Created by Frank Chu on 8/28/22.
+  
+*/
+"username" = "用户名";
+"email" = "邮箱";
+"password" = "密码";
+"OK" = "好";
+"Register" = "注册";

@@ -24,6 +24,9 @@
 		FE1123E32874205A00CB09B7 /* SpacialArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1123E22874205A00CB09B7 /* SpacialArrowView.swift */; };
 		FE1123E52874231D00CB09B7 /* SpacialMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1123E42874231D00CB09B7 /* SpacialMapView.swift */; };
 		FE1123E9287437A400CB09B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE1123E8287437A400CB09B7 /* Assets.xcassets */; };
+		FE1C9B9C28BB539E0091AC28 /* TwoAvaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C9B9B28BB539E0091AC28 /* TwoAvaterView.swift */; };
+		FE1C9B9F28BBA9230091AC28 /* EditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C9B9E28BBA9230091AC28 /* EditMode.swift */; };
+		FE1C9BA128BBA9E30091AC28 /* DebugPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C9BA028BBA9E30091AC28 /* DebugPageView.swift */; };
 		FE3A436D28229D5B006F6F16 /* RunningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A436C28229D5B006F6F16 /* RunningApp.swift */; };
 		FE3A436F28229D5B006F6F16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A436E28229D5B006F6F16 /* ContentView.swift */; };
 		FE3A437428229D5C006F6F16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE3A437328229D5C006F6F16 /* Preview Assets.xcassets */; };
@@ -130,6 +133,10 @@
 		FE1123E22874205A00CB09B7 /* SpacialArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacialArrowView.swift; sourceTree = "<group>"; };
 		FE1123E42874231D00CB09B7 /* SpacialMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacialMapView.swift; sourceTree = "<group>"; };
 		FE1123E8287437A400CB09B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE1C9B9B28BB539E0091AC28 /* TwoAvaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoAvaterView.swift; sourceTree = "<group>"; };
+		FE1C9B9D28BB852E0091AC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FE1C9B9E28BBA9230091AC28 /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
+		FE1C9BA028BBA9E30091AC28 /* DebugPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPageView.swift; sourceTree = "<group>"; };
 		FE38E7E6285CDA2E00021DD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FE3A436928229D5B006F6F16 /* Running.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Running.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE3A436C28229D5B006F6F16 /* RunningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningApp.swift; sourceTree = "<group>"; };
@@ -243,8 +250,9 @@
 			children = (
 				FE3A436E28229D5B006F6F16 /* ContentView.swift */,
 				FE3A437A28229D87006F6F16 /* StartRunning */,
-				FE6DDC7928BA6D3300ECB31C /* Login */,
+				FE3A43812822A09B006F6F16 /* RunningData */,
 				FE3A43842822A0E8006F6F16 /* Settings */,
+				FE6DDC7928BA6D3300ECB31C /* Login */,
 				FE989D7E282D4D10009937D4 /* RepeatView */,
 				FE1123DB28740A5200CB09B7 /* Map */,
 				FE38E7DC285CD73300021DD4 /* PASTView */,
@@ -266,8 +274,6 @@
 				FEB537F328698ACB00642B7F /* ConnectView.swift */,
 				FE6DDC7A28BA6D3300ECB31C /* MainPage.swift */,
 				FE6DDC7B28BA6D3300ECB31C /* LandingView.swift */,
-				FE692B802822BFDF00F9728A /* TabBarView.swift */,
-				FE3A43812822A09B006F6F16 /* RunningData */,
 			);
 			path = PASTView;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 		FE3A436B28229D5B006F6F16 /* Running */ = {
 			isa = PBXGroup;
 			children = (
+				FE1C9B9D28BB852E0091AC28 /* Info.plist */,
 				FE6DDC8E28BA858D00ECB31C /* RunningRelease.entitlements */,
 				FE6DDC8728BA714600ECB31C /* RunningDebug.entitlements */,
 				FE3A436C28229D5B006F6F16 /* RunningApp.swift */,
@@ -346,6 +353,7 @@
 				FE3A437F28229E48006F6F16 /* RunningManShape.swift */,
 				FE692B7C2822B87C00F9728A /* DataShape.swift */,
 				FE692B7E2822B8F100F9728A /* SettingsShape.swift */,
+				FE692B802822BFDF00F9728A /* TabBarView.swift */,
 			);
 			path = IncisedView;
 			sourceTree = "<group>";
@@ -354,11 +362,12 @@
 			isa = PBXGroup;
 			children = (
 				FE3A43822822A0B1006F6F16 /* DataStaticsView.swift */,
-				B8B55CC928BA1B6F00C70A3C /* DataView.swift */,
+				FE1C9B9B28BB539E0091AC28 /* TwoAvaterView.swift */,
 				FE989D74282D47E6009937D4 /* DataPreview.swift */,
 				FE989D76282D4819009937D4 /* CadenceData.swift */,
 				FE989D7C282D4BFD009937D4 /* PoseData.swift */,
 				FE989D78282D4BE2009937D4 /* PaceView.swift */,
+				B8B55CC928BA1B6F00C70A3C /* DataView.swift */,
 			);
 			path = RunningData;
 			sourceTree = "<group>";
@@ -367,7 +376,9 @@
 			isa = PBXGroup;
 			children = (
 				FE3A43862822A102006F6F16 /* SettingsView.swift */,
+				FE1C9B9E28BBA9230091AC28 /* EditMode.swift */,
 				FE408A0628BB22650086F5A9 /* FriendsList.swift */,
+				FE1C9BA028BBA9E30091AC28 /* DebugPageView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -566,6 +577,7 @@
 				FE6DDC9728BA92E900ECB31C /* UserInfomation.swift in Sources */,
 				FE692B812822BFDF00F9728A /* TabBarView.swift in Sources */,
 				FE1123DD28740A5E00CB09B7 /* MapView.swift in Sources */,
+				FE1C9B9F28BBA9230091AC28 /* EditMode.swift in Sources */,
 				FE408A0928BB305C0086F5A9 /* DetailedView.swift in Sources */,
 				FE6DDC8628BA6E5200ECB31C /* FirebaseManager.swift in Sources */,
 				FE692B7F2822B8F100F9728A /* SettingsShape.swift in Sources */,
@@ -595,8 +607,10 @@
 				B8B55CC628BA0E4F00C70A3C /* DataResultView.swift in Sources */,
 				FE692B892822CD6900F9728A /* VibrationSpecialButton.swift in Sources */,
 				FE3A437C28229DA1006F6F16 /* StartView.swift in Sources */,
+				FE1C9BA128BBA9E30091AC28 /* DebugPageView.swift in Sources */,
 				FE692B832822C2F400F9728A /* ButtonRectangle.swift in Sources */,
 				FE3A436D28229D5B006F6F16 /* RunningApp.swift in Sources */,
+				FE1C9B9C28BB539E0091AC28 /* TwoAvaterView.swift in Sources */,
 				FE989D79282D4BE2009937D4 /* PaceView.swift in Sources */,
 				FE6DDC7F28BA6D3300ECB31C /* EmailLogin.swift in Sources */,
 				FE1123E32874205A00CB09B7 /* SpacialArrowView.swift in Sources */,
@@ -647,7 +661,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = watch_WatchKit_Extension;
 				INFOPLIST_FILE = watch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = watch;
+				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.yongfrank.Running;
 				MARKETING_VERSION = 1.0;
@@ -674,7 +688,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = watch_WatchKit_Extension;
 				INFOPLIST_FILE = watch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = watch;
+				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.yongfrank.Running;
 				MARKETING_VERSION = 1.0;
@@ -885,6 +899,8 @@
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Running/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "We need your location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location.";
@@ -894,6 +910,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -920,6 +937,8 @@
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Running/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "We need your location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location.";
@@ -929,6 +948,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,13 +11,15 @@ import SwiftUI
 class StateOfSomething: ObservableObject {
     @Published var isInRunningView = false
     @Published var buttonState = "Pause"
-    @Published var selectedIndex = 0
+    @Published var selectedIndex = 1
+    @Published var debuggingMode = false
 }
 
 struct ContentView: View {
     
-    @StateObject var state = StateOfSomething()
+    @EnvironmentObject var state: StateOfSomething
     @EnvironmentObject var viewModel: MainPageViewMode
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
@@ -41,35 +43,39 @@ struct ContentView: View {
                     }
                     Spacer()
                     TabBarView()
-    //                TabBarView(selectedIndex: $state.selectedIndex)
+//                        .padding(.bottom)
+                    //                TabBarView(selectedIndex: $state.selectedIndex)
                 }
             } else {
                 Repeat()
-                    .environmentObject(state)
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
-        .environmentObject(state)
         .fullScreenCover(isPresented: $viewModel.isUserCurrentlyLoggedOut) {
             EmailLogin {
-                self.viewModel.isUserCurrentlyLoggedOut = false
                 viewModel.fetchCurrentUser()
+                self.viewModel.isUserCurrentlyLoggedOut = false
+//                guard let _ = viewModel.currentLogInUser else {
+//                    self.showingAlert = true
+//                    viewModel.errorMessage = "未连接到服务器"
+//                    return
+//                }
+            }
+            .alert(viewModel.errorMessage, isPresented: $showingAlert) {
+                Button("好", role: .cancel) {}
             }
         }
     }
 }
- 
+
 struct ContentView_Previews: PreviewProvider {
-    static var state = StateOfSomething()
     static var previews: some View {
-        ContentView()
-            .environmentObject(state)
-            .environmentObject(MainPageViewMode())
-            .previewDevice("iPhone 13")
-        ContentView()
-            .environmentObject(state)
-            .environmentObject(MainPageViewMode())
-            .previewDevice("iPhone 8")
+        ForEach(["iPhone 13", "iPhone 13 mini", "iPhone SE (3rd generation)", "iPhone 13 Pro Max"], id: \.self) { model in
+            ContentView()
+                .environmentObject(StateOfSomething())
+                .environmentObject(MainPageViewMode())
+                .previewDevice(PreviewDevice(rawValue: model))
+        }
     }
 }

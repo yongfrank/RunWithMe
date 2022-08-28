@@ -15,8 +15,78 @@ struct SignInWithAppleManager: View {
     @Binding var username: String
     @Binding var email: String
     
+    @State private var showingAlert: Bool = false
+    @State private var errorMessage: String = ""
+    
     let didFinishedSignInWithApple: () -> ()
 
+    
+    @State var currentNonce: String?
+    
+    var body: some View {
+        SignInWithAppleButton(
+            onRequest: { request in
+                let nonce = randomNonceString()
+                self.currentNonce = nonce
+                request.requestedScopes = [.fullName, .email]
+                request.nonce = sha256(nonce)
+            },
+            onCompletion: { result in
+                switch result {
+                case .success(let authResults):
+                    switch authResults.credential {
+                    case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                        guard let nonce = currentNonce else {
+                            fatalError("ERROR SIWAButton: Invalid state: A login call back was received, but no login request was sent.")
+                        }
+                        
+                        guard let appleIDToken = appleIDCredential.identityToken else {
+                            fatalError("ERROR appleIDToken: Invalid state: A login call back was received, but no login request was sent.")
+                        }
+                        guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                            return
+                        }
+                        
+                        let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+                        FirebaseManager.shared.auth.signIn(with: credential) { authResults, error in
+                            print("DEBUG: Connecting to Google Service")
+                            if (error != nil) {
+                                self.showingAlert = true
+                                self.errorMessage = "未连接到服务器"
+                                print("ERROR auth.signIn apple: \(error?.localizedDescription as Any)")
+                                return
+                            }
+                            print("DEBUG SignInWithApple Success, uid: \(FirebaseManager.shared.auth.currentUser?.uid ?? "Unknown Apple UID")")
+                            self.didFinishedSignInWithApple()
+                        }
+                        if let username = appleIDCredential.fullName {
+                            print("DEBUG: Name is \(username)")
+                            self.username = String(username.familyName ?? "") + String(username.givenName ?? "Appleseed")
+                        }
+                        if let email = appleIDCredential.email {
+                            print("DEBUG: email is \(email)")
+                            self.email = email
+                        } else {
+                            print("DEBUG: Email Unknown")
+                            self.email = ""
+                        }
+                    default:
+                        break
+                    }
+                    
+                default:
+                    break
+                }
+            }
+        )
+        .alert(self.errorMessage, isPresented: $showingAlert) {
+            Button("好", role: .cancel) { }
+        }
+        .frame(width: 300, height: 50)
+        .cornerRadius(10)
+
+    }
     
     private func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
@@ -61,67 +131,6 @@ struct SignInWithAppleManager: View {
         }.joined()
         
         return hashString
-    }
-    
-    
-    @State var currentNonce: String?
-    
-    var body: some View {
-        SignInWithAppleButton(
-            onRequest: { request in
-                let nonce = randomNonceString()
-                self.currentNonce = nonce
-                request.requestedScopes = [.fullName, .email]
-                request.nonce = sha256(nonce)
-            },
-            onCompletion: { result in
-                switch result {
-                case .success(let authResults):
-                    switch authResults.credential {
-                    case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                        guard let nonce = currentNonce else {
-                            fatalError("ERROR SIWAButton: Invalid state: A login call back was received, but no login request was sent.")
-                        }
-                        
-                        guard let appleIDToken = appleIDCredential.identityToken else {
-                            fatalError("ERROR appleIDToken: Invalid state: A login call back was received, but no login request was sent.")
-                        }
-                        guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                            print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                            return
-                        }
-                        
-                        let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
-                        FirebaseManager.shared.auth.signIn(with: credential) { authResults, error in
-                            if (error != nil) {
-                                print("ERROR auth.signIn apple: \(error?.localizedDescription as Any)")
-                                return
-                            }
-                            print("DEBUG SignInWithApple Success, uid: \(FirebaseManager.shared.auth.currentUser?.uid ?? "Unknown Apple UID")")
-                            self.didFinishedSignInWithApple()
-                        }
-                        if let username = appleIDCredential.fullName {
-                            self.username = String(username.familyName ?? "" + (username.givenName ?? "Apple") )
-                        } else {
-                            self.username = "Apple"
-                        }
-                        if let email = appleIDCredential.email {
-                            self.email = email
-                        } else {
-                            self.email = ""
-                        }
-                    default:
-                        break
-                    }
-                    
-                default:
-                    break
-                }
-            }
-        )
-        .frame(width: 300, height: 50)
-        .cornerRadius(10)
-
     }
 }
 

@@ -20,11 +20,15 @@ struct StartView: View {
         NavigationView {
             ScrollView {
                 HStack {
-                    DetailedView.avaterDisplay(user: vm.currentUser)
-                        .padding(.bottom)
-                    ForEach(0..<3) { num in
-                        
-                    }
+                    DetailedView.avaterDisplay(user: vm.currentLogInUser, sizeOfProfile: 60)
+                        .padding(.horizontal, 21)
+                        .accessibilityElement(children: .combine)
+                    DetailedView.avaterDisplay(user: vm.currentLogInUser, sizeOfProfile: 76)
+                        .padding(.bottom, 5)
+                        .accessibilityElement(children: .combine)
+                    DetailedView.avaterDisplay(user: vm.currentLogInUser, sizeOfProfile: 60)
+                        .padding(.horizontal, 21)
+                        .accessibilityElement(children: .combine)
                 }
                 buttonCollection
                 
@@ -198,23 +202,16 @@ struct StartView: View {
 }
 
 struct Start_Previews: PreviewProvider {
+    static let state = StateOfSomething()
     static var previews: some View {
-        ContentView()
-            .environmentObject(StateOfSomething())
-            .environmentObject(MainPageViewMode())
-            .previewDevice("iPhone 13")
-        ContentView()
-            .environmentObject(StateOfSomething())
-            .environmentObject(MainPageViewMode())
-            .previewDevice("iPhone 13 mini")
-        ContentView()
-            .environmentObject(StateOfSomething())
-            .environmentObject(MainPageViewMode())
-            .previewDevice("iPhone SE (3rd generation)")
-        
-        ContentView()
-            .environmentObject(StateOfSomething())
-            .environmentObject(MainPageViewMode())
-            .previewDevice("iPhone 13 Pro Max")
+        ForEach(["iPhone 13", "iPhone 13 mini", "iPhone SE (3rd generation)", "iPhone 13 Pro Max"], id: \.self) { model in
+            ContentView()
+                .environmentObject(state)
+                .environmentObject(MainPageViewMode())
+                .previewDevice(PreviewDevice(rawValue: model))
+                .onAppear {
+                    state.selectedIndex = 0
+                }
+        }
     }
 }

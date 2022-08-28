@@ -9,6 +9,7 @@ import SwiftUI
 import AuthenticationServices
 import Firebase
 import FirebaseFirestoreSwift
+import Kingfisher
 
 struct EmailLogin: View {
     let didCompleteLoginProcess: () -> ()
@@ -68,7 +69,10 @@ struct EmailLogin: View {
                                 loginButton(name: "登陆")
                             }
                         }
-                        .frame(width: 300, height: 200)
+                        .frame(width: 300, height: 300)
+                        .padding()
+                        .background(.ultraThinMaterial)
+                        .cornerRadius(30)
                     }
                 }
                 
@@ -77,7 +81,7 @@ struct EmailLogin: View {
                     Button {
                         showImage.toggle()
                     } label: {
-                        Self.avaterChoice(image: inputImage)
+                        Self.avaterChoice(image: inputImage, user: vm.currentLogInUser)
                     }
                     .accessibilityAddTraits(.isImage)
                     .accessibilityLabel("选择头像")
@@ -87,13 +91,16 @@ struct EmailLogin: View {
                     Spacer().frame(height: proxy.size.height * 0.2)
                     
                     SignInWithAppleManager(username: $username, email: $email) {
-                        if let _ = vm.currentUser {
-                            
-                        } else {
-                            self.storeUserInformation(imageProfileUrl: URL(string: UserInformation.accountExample.profileImageUrl)!)
+                        print("DEBUG: email is", email)
+                        if email != "" {
+                            if let _ = inputImage {
+                                persistImageToStorage()
+                            } else {
+                                self.storeUserInformation(imageProfileUrl: URL(string: UserInformation.accountExample.profileImageUrl)!)
+                            }
                         }
-                        self.didCompleteLoginProcess()
                         
+                        self.didCompleteLoginProcess()
                     }
                     
                     Button {
@@ -127,7 +134,6 @@ struct EmailLogin: View {
     
     
     func loginUserWithEmail(email: String, password: String) {
-        
         FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 self.showingAlert = true
@@ -162,6 +168,7 @@ struct EmailLogin: View {
     }
     
     func persistImageToStorage() {
+        
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let ref = FirebaseManager.shared.storage.reference(withPath: uid)
         guard let imageData = self.inputImage?.jpegData(compressionQuality: 0.5) else { return }
@@ -194,7 +201,7 @@ struct EmailLogin: View {
         //            UserInfoConstants.email: self.email,
         //            UserInfoConstants.profileImageUrl: imageProfileUrl.absoluteString
         //        ]
-        let userData = UserInformation(id: nil, uid: uid, username: self.username, email: self.email, profileImageUrl: imageProfileUrl.absoluteString)
+        let userData = UserInformation(id: nil, uid: uid, email: self.email, username: self.username, profileImageUrl: imageProfileUrl.absoluteString)
         let document = FirebaseManager.shared.firestore
             .collection("users")
             .document(uid)
@@ -221,22 +228,32 @@ struct EmailLogin: View {
     }
     
     
-    static func avaterChoice(image: UIImage?) -> some View {
+    static func avaterChoice(image: UIImage?, user: UserInformation?) -> some View {
         VStack {
             if let image = image {
                 Image(uiImage: image)
                     .resizable()
-                    .frame(width: 128, height: 128)
                     .scaledToFill()
+                    .frame(width: 128, height: 128)
                     .cornerRadius(64)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 64)
-                            .stroke(.black, lineWidth: 1)
+                        DetailedView.overlayBorder()
                     )
             } else {
-                Image("loginMan")
-                    .resizable()
-                    .frame(width: 128, height: 128)
+                if let user = user {
+                    KFImage(URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 128, height: 128)
+                        .cornerRadius(64)
+                        .overlay(
+                            DetailedView.overlayBorder()
+                        )
+                } else {
+                    Image("loginMan")
+                        .resizable()
+                        .frame(width: 128, height: 128)
+                }
             }
         }
         
