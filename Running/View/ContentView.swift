@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-//@MainActor
 class StateOfSomething: ObservableObject {
     @Published var isInRunningView = false
     @Published var buttonState = "Pause"
@@ -18,6 +17,7 @@ class StateOfSomething: ObservableObject {
 struct ContentView: View {
     
     @StateObject var state = StateOfSomething()
+    @EnvironmentObject var viewModel: MainPageViewMode
     
     var body: some View {
         VStack {
@@ -27,16 +27,16 @@ struct ContentView: View {
                         switch state.selectedIndex {
                         case 0:
                             if !state.isInRunningView {
-                                Start()
+                                StartView()
                             } else {
                                 Repeat()
                             }
                         case 1:
-                            Data()
+                            DataStaticsView()
                         case 2:
                             SettingsView()
                         default:
-                            Start()
+                            StartView()
                         }
                     }
                     Spacer()
@@ -51,7 +51,12 @@ struct ContentView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
         .environmentObject(state)
-        
+        .fullScreenCover(isPresented: $viewModel.isUserCurrentlyLoggedOut) {
+            EmailLogin {
+                self.viewModel.isUserCurrentlyLoggedOut = false
+                viewModel.fetchCurrentUser()
+            }
+        }
     }
 }
  
@@ -60,6 +65,11 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(state)
+            .environmentObject(MainPageViewMode())
             .previewDevice("iPhone 13")
+        ContentView()
+            .environmentObject(state)
+            .environmentObject(MainPageViewMode())
+            .previewDevice("iPhone 8")
     }
 }

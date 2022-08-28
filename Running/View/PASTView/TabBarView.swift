@@ -48,9 +48,9 @@ struct TabBarView: View {
 }
 
 struct TabBarView_Previews: PreviewProvider {
-    static let state = StateOfSomething()
+    
     static var previews: some View {
         TabBarView()
-            .environmentObject(state)
+            .environmentObject(StateOfSomething())
     }
 }

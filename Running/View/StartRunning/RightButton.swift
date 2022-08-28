@@ -14,7 +14,7 @@ struct RightButton: View {
                 .foregroundColor(Color(hex: 0xDF1876))
                 .frame(width: 25, height: 25)
             //增加20s
-            Text("增加20s").font(.custom("PingFang SC Regular", size: 10)).tracking(-0.41)
+            Text("增加20秒").font(.custom("PingFang SC Regular", size: 10)).tracking(-0.41)
 //                .offset(y: -10)
         }
     }

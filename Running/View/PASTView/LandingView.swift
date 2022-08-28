@@ -50,6 +50,7 @@ class ViewModel: ObservableObject {
     }
 }
 
+
 struct LandingView: View {
     @StateObject var vm = ViewModel()
     @State private var isActive = false
@@ -73,46 +74,7 @@ struct LandingView: View {
 
                     // Avater
                     VStack {
-                        // Ellipse 433
-                        // Ellipse 433
-                        ZStack {
-                        Circle()
-                            .fill(RadialGradient(
-                                gradient: Gradient(stops: [
-                                    .init(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), location: 0),
-                                    .init(color: Color(#colorLiteral(red: 0.7686274647712708, green: 0.7686274647712708, blue: 0.7686274647712708, alpha: 0)), location: 1),
-                                ]),
-                                center: UnitPoint(x: 0.17968745029793087, y: 0.7968750518411999),
-                                startRadius: 2.125459606136431,
-                                endRadius: 212.5459606136431
-                            ))
-                            .frame(width: 109, height: 109)
-                            Image("loginMan")
-                                .resizable()
-                                .frame(width: 110, height: 110)
-                        }
-                        // User Name Here
-                        Text(vm.user.name)
-                            .font(.custom("PingFang SC Regular", size: 16))
-                            .foregroundColor(.white)
-                            .tracking(-0.41)
-                    }
-
-                    Spacer()
-
-                    // Login Button
-                    NavigationLink {
-                        ConnectFriendsView()
-                    } label: {
-                        ZStack {
-                            // Rectangle 7
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
-                                .frame(width: 282, height: 69)
-                                .shadow(color: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.15000000596046448)), radius: 20, x: 2, y: 8)
-                            // 登录
-                            Text("登录").font(.custom("PingFang SC Semibold", size: 36)).foregroundColor(Color(#colorLiteral(red: 0.7, green: 0.93, blue: 0.2, alpha: 1))).tracking(30.09)
-                        }
+                        
                     }
 
                     Spacer().frame(height: proxy.size.height * 0.15)
@@ -121,15 +83,18 @@ struct LandingView: View {
                 .background(Color(hex: "B1EE34"))
             }
             .navigationBarHidden(true)
+            
+            .environmentObject(vm)
         }
     }
 }
 
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
-        LandingView().previewDevice("iPhone 13 Pro Max")
-        LandingView().previewDevice("iPhone 13 Pro")
-        LandingView().previewDevice("iPhone 8")
+//        Text("hi")
+        LandingView()
+//        LandingView().previewDevice("iPhone 13 Pro")
+//        LandingView().previewDevice("iPhone 8")
     }
 }
 

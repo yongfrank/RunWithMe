@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Data: View {
+struct DataStaticsView: View {
     var body: some View {
         NavigationView {
             VStack {
@@ -21,6 +21,6 @@ struct Data: View {
 
 struct Data_Previews: PreviewProvider {
     static var previews: some View {
-        Data()
+        DataStaticsView()
     }
 }

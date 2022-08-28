@@ -10,11 +10,14 @@ import SwiftUI
 @main
 struct RunningApp: App {
     @StateObject private var state = StateOfSomething()
+    @StateObject var viewModel = MainPageViewMode()
+
     var body: some Scene {
         WindowGroup {
-            LandingView()
-//            ContentView()
-//                .environmentObject(state)
+//            LandingView()
+            ContentView()
+                .environmentObject(state)
+                .environmentObject(viewModel)
         }
     }
 }
