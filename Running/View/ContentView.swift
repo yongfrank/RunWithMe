@@ -11,7 +11,7 @@ import SwiftUI
 class StateOfSomething: ObservableObject {
     @Published var isInRunningView = false
     @Published var buttonState = "Pause"
-    @Published var selectedIndex = 1
+    @Published var selectedIndex = 0
     @Published var debuggingMode = false
 }
 
