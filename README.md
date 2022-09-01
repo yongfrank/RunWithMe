@@ -6,3 +6,4 @@
 
 Everything you saw, you learned is welcome.
 
+stash check
