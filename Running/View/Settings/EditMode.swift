@@ -45,7 +45,7 @@ struct EditMode: View {
                             return
                         }
                         if let inputImage = inputImage {
-                            vm.persistImageToStorage(inputImage: inputImage, user: user)
+                            vm.persistImageToStorageOnEditMode(inputImage: inputImage, user: user)
                         } else {
                             vm.storeUserInformation(user: user)
                         }
@@ -55,7 +55,7 @@ struct EditMode: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("编辑信息")
+            .navigationTitle(SettingsConstants.editInfo.rawValue)
         }
         .onAppear {
             username = self.vm.currentLogInUser?.username ?? ""

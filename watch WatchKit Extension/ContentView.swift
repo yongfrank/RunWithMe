@@ -66,11 +66,11 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
             locationManager.requestLocation()
         }
     }
-
+    
     func requestLocation() {
         locationManager.requestLocation()
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus){
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways, .authorizedWhenInUse: break
@@ -109,7 +109,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                 print("发送经纬度到app 错误\(error)")
             })
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

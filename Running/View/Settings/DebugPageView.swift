@@ -13,39 +13,57 @@ struct DebugPageView: View {
     let layoutGrid = [GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
         ScrollView {
-            Text("id: \(vm.currentLogInUser?.id ?? "Unknown")")
-            Text("uid: \(vm.currentLogInUser?.uid ?? "Unkown")")
-            Text("email: \(vm.currentLogInUser?.email ?? "Unkown")")
-            Text("url: \(vm.currentLogInUser?.profileImageUrl ?? "Unkown")")
-            Text("username: \(vm.currentLogInUser?.username ?? "Unkown")")
-            
-            LazyVGrid(columns: layoutGrid) {
-                ForEach(vm.users) { user in
-                    if vm.currentLogInUser?.uid != user.uid {
-                        Button {
-                            vm.handleSignOut()
-                            vm.loginUserWithEmail(email: user.email, password: "123123")
-                        } label: {
-                            FriendsAvater(user: user)
-                                .accessibilityElement(children: .combine)
+            if let users = vm.users {
+                LazyVGrid(columns: layoutGrid) {
+                    ForEach(users, id: \.self) { user in
+                        if vm.currentLogInUser?.uid != user.uid {
+                            Button {
+                                vm.handleSignOut()
+                                vm.loginUserWithEmail(email: user.email, password: "123123")
+                            } label: {
+                                DebugFriendsAvater(user: user)
+                                    .accessibilityElement(children: .combine)
+                            }
                         }
                     }
                 }
+                .frame(minWidth: 300, idealWidth: 350, maxWidth: 400)
+            } else {
+                ProgressView()
             }
-            .frame(width: 350)
+            Text("Current Log mode \(FirebaseManager.shared.auth.currentUser?.uid ?? "should log out, no uid")")
             
+            Text("id: \(vm.currentLogInUser?.id ?? "Unknown")")
+            Text("uid: \(vm.currentLogInUser?.uid ?? "Unkown")")
+            Text("email: \(vm.currentLogInUser?.email ?? "Unkown")")
+            Text("username: \(vm.currentLogInUser?.username ?? "Unkown")")
+            Text("url: \(vm.currentLogInUser?.profileImageUrl ?? "Unkown")")
+
+        }
+        .navigationTitle(SettingsConstants.debugApp.rawValue)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    vm.fetchAllUsers()
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+            }
         }
     }
 }
 
 struct DebugPageView_Previews: PreviewProvider {
     static var previews: some View {
-        DebugPageView()
-            .environmentObject(MainPageViewMode())
+        NavigationView {
+            DebugPageView()
+                .environmentObject(MainPageViewMode())
+        }
     }
 }
 
-fileprivate struct FriendsAvater: View {
+fileprivate struct DebugFriendsAvater: View {
     let user: UserInformation
     
     var body: some View {
@@ -63,9 +81,9 @@ fileprivate struct FriendsAvater: View {
                 Text(user.username)
                     .font(.custom("PingFang SC Regular", size: 16))
                     .tracking(-0.41)
+                
                 Text(user.email)
             }
-            
         }
         .frame(width: 144, height: 137)
     }

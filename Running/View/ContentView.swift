@@ -8,13 +8,6 @@
 
 import SwiftUI
 
-class StateOfSomething: ObservableObject {
-    @Published var isInRunningView = false
-    @Published var buttonState = "Pause"
-    @Published var selectedIndex = 0
-    @Published var debuggingMode = false
-}
-
 struct ContentView: View {
     
     @EnvironmentObject var state: StateOfSomething
@@ -28,13 +21,15 @@ struct ContentView: View {
                     ZStack {
                         switch state.selectedIndex {
                         case 0:
-                            if !state.isInRunningView {
-                                StartView()
-                            } else {
-                                Repeat()
-                            }
+                            StartView()
+//                            if !state.isInRunningView {
+//                                StartView()
+//                            } else {
+//                                StartCountdown()
+//                            }
                         case 1:
                             DataStaticsView()
+//                            DataPreview()
                         case 2:
                             SettingsView()
                         default:
@@ -47,7 +42,7 @@ struct ContentView: View {
                     //                TabBarView(selectedIndex: $state.selectedIndex)
                 }
             } else {
-                Repeat()
+                StartCountdown()
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -56,6 +51,7 @@ struct ContentView: View {
             EmailLogin {
                 viewModel.fetchCurrentUser()
                 self.viewModel.isUserCurrentlyLoggedOut = false
+                
 //                guard let _ = viewModel.currentLogInUser else {
 //                    self.showingAlert = true
 //                    viewModel.errorMessage = "未连接到服务器"
@@ -71,10 +67,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(["iPhone 13", "iPhone 13 mini", "iPhone SE (3rd generation)", "iPhone 13 Pro Max"], id: \.self) { model in
+        ForEach(["iPhone 13", "iPhone SE (3rd generation)","iPhone 13 mini", "iPhone 8", "iPhone 13 Pro Max"], id: \.self) { model in
             ContentView()
                 .environmentObject(StateOfSomething())
                 .environmentObject(MainPageViewMode())
+                .environmentObject(RunningDataViewModel())
                 .previewDevice(PreviewDevice(rawValue: model))
         }
     }

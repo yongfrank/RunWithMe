@@ -18,6 +18,7 @@
 		B8B55CC628BA0E4F00C70A3C /* DataResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B55CC528BA0E4F00C70A3C /* DataResultView.swift */; };
 		B8B55CCA28BA1B6F00C70A3C /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B55CC928BA1B6F00C70A3C /* DataView.swift */; };
 		B8C71CDA28B8C1D800A1EC78 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C71CD928B8C1D800A1EC78 /* MapViewController.swift */; };
+		FE0DF45C28C0419B00614702 /* StaticCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0DF45B28C0419B00614702 /* StaticCountDownView.swift */; };
 		FE1123DD28740A5E00CB09B7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1123DC28740A5E00CB09B7 /* MapView.swift */; };
 		FE1123DF28740AA400CB09B7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1123DE28740AA400CB09B7 /* LocationViewModel.swift */; };
 		FE1123E128740ECA00CB09B7 /* PausePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1123E028740ECA00CB09B7 /* PausePanel.swift */; };
@@ -36,6 +37,10 @@
 		FE3A43872822A102006F6F16 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A43862822A102006F6F16 /* SettingsView.swift */; };
 		FE408A0728BB22650086F5A9 /* FriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE408A0628BB22650086F5A9 /* FriendsList.swift */; };
 		FE408A0928BB305C0086F5A9 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE408A0828BB305C0086F5A9 /* DetailedView.swift */; };
+		FE664E5228BCB6C20027DFC2 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE664E5128BCB6C20027DFC2 /* RefreshableScrollView.swift */; };
+		FE664E5428BCCC540027DFC2 /* EmailLoginFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE664E5328BCCC540027DFC2 /* EmailLoginFieldsView.swift */; };
+		FE664E5628BCD80F0027DFC2 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE664E5528BCD80F0027DFC2 /* LoginError.swift */; };
+		FE664E5828BCE9160027DFC2 /* StateOfSometing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE664E5728BCE9160027DFC2 /* StateOfSometing.swift */; };
 		FE692B7D2822B87C00F9728A /* DataShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE692B7C2822B87C00F9728A /* DataShape.swift */; };
 		FE692B7F2822B8F100F9728A /* SettingsShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE692B7E2822B8F100F9728A /* SettingsShape.swift */; };
 		FE692B812822BFDF00F9728A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE692B802822BFDF00F9728A /* TabBarView.swift */; };
@@ -56,15 +61,22 @@
 		FE6DDC9128BA8B5A00ECB31C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FE6DDC9328BA8B5A00ECB31C /* Localizable.strings */; };
 		FE6DDC9728BA92E900ECB31C /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6DDC9628BA92E900ECB31C /* UserInfomation.swift */; };
 		FE6DDC9A28BA9F3300ECB31C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FE6DDC9928BA9F3300ECB31C /* Kingfisher */; };
+		FE7A8B4B28BDF87A00AD8EDF /* RunningDataRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A8B4A28BDF87A00AD8EDF /* RunningDataRingView.swift */; };
+		FE7A8B4D28BE011A00AD8EDF /* DataRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A8B4C28BE011A00AD8EDF /* DataRingView.swift */; };
+		FE7A8B4F28BE65CF00AD8EDF /* RectanglePieShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A8B4E28BE65CE00AD8EDF /* RectanglePieShapeView.swift */; };
+		FE7A8B5128BE6EE000AD8EDF /* RunningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A8B5028BE6EE000AD8EDF /* RunningDataModel.swift */; };
+		FE7A8B5328BE918600AD8EDF /* RunningDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7A8B5228BE918600AD8EDF /* RunningDataViewModel.swift */; };
 		FE989D75282D47E7009937D4 /* DataPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE989D74282D47E6009937D4 /* DataPreview.swift */; };
 		FE989D77282D4819009937D4 /* CadenceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE989D76282D4819009937D4 /* CadenceData.swift */; };
 		FE989D79282D4BE2009937D4 /* PaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE989D78282D4BE2009937D4 /* PaceView.swift */; };
 		FE989D7D282D4BFD009937D4 /* PoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE989D7C282D4BFD009937D4 /* PoseData.swift */; };
-		FE989D80282D4D25009937D4 /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE989D7F282D4D25009937D4 /* Repeat.swift */; };
+		FE989D80282D4D25009937D4 /* StartCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE989D7F282D4D25009937D4 /* StartCountdown.swift */; };
+		FEA6912628BEFAE500D272EB /* ChartDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA6912528BEFAE500D272EB /* ChartDataView.swift */; };
 		FEB537F428698ACB00642B7F /* ConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB537F328698ACB00642B7F /* ConnectView.swift */; };
 		FEB537F628698FE900642B7F /* ConnectFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB537F528698FE900642B7F /* ConnectFriendsView.swift */; };
 		FEB73B1B282D5C090098E755 /* RunningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB73B1A282D5C090098E755 /* RunningView.swift */; };
 		FEB73B37282D65F30098E755 /* RunningDataResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB73B36282D65F30098E755 /* RunningDataResultView.swift */; };
+		FEC5835328BF28C9001A8D59 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC5835228BF28C9001A8D59 /* ChartView.swift */; };
 		FEE964D128BA328F00798923 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FEE964D028BA328F00798923 /* FirebaseAuth */; };
 		FEE964D328BA328F00798923 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FEE964D228BA328F00798923 /* FirebaseFirestore */; };
 		FEE964D528BA328F00798923 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FEE964D428BA328F00798923 /* FirebaseFirestoreSwift */; };
@@ -127,6 +139,7 @@
 		B8B55CC528BA0E4F00C70A3C /* DataResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResultView.swift; sourceTree = "<group>"; };
 		B8B55CC928BA1B6F00C70A3C /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		B8C71CD928B8C1D800A1EC78 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FE0DF45B28C0419B00614702 /* StaticCountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCountDownView.swift; sourceTree = "<group>"; };
 		FE1123DC28740A5E00CB09B7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FE1123DE28740AA400CB09B7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		FE1123E028740ECA00CB09B7 /* PausePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PausePanel.swift; sourceTree = "<group>"; };
@@ -148,6 +161,10 @@
 		FE3A43862822A102006F6F16 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FE408A0628BB22650086F5A9 /* FriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsList.swift; sourceTree = "<group>"; };
 		FE408A0828BB305C0086F5A9 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
+		FE664E5128BCB6C20027DFC2 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
+		FE664E5328BCCC540027DFC2 /* EmailLoginFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginFieldsView.swift; sourceTree = "<group>"; };
+		FE664E5528BCD80F0027DFC2 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		FE664E5728BCE9160027DFC2 /* StateOfSometing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfSometing.swift; sourceTree = "<group>"; };
 		FE692B7C2822B87C00F9728A /* DataShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShape.swift; sourceTree = "<group>"; };
 		FE692B7E2822B8F100F9728A /* SettingsShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsShape.swift; sourceTree = "<group>"; };
 		FE692B802822BFDF00F9728A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -170,15 +187,22 @@
 		FE6DDC9228BA8B5A00ECB31C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FE6DDC9428BA8B5D00ECB31C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FE6DDC9628BA92E900ECB31C /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
+		FE7A8B4A28BDF87A00AD8EDF /* RunningDataRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningDataRingView.swift; sourceTree = "<group>"; };
+		FE7A8B4C28BE011A00AD8EDF /* DataRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRingView.swift; sourceTree = "<group>"; };
+		FE7A8B4E28BE65CE00AD8EDF /* RectanglePieShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectanglePieShapeView.swift; sourceTree = "<group>"; };
+		FE7A8B5028BE6EE000AD8EDF /* RunningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningDataModel.swift; sourceTree = "<group>"; };
+		FE7A8B5228BE918600AD8EDF /* RunningDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningDataViewModel.swift; sourceTree = "<group>"; };
 		FE989D74282D47E6009937D4 /* DataPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPreview.swift; sourceTree = "<group>"; };
 		FE989D76282D4819009937D4 /* CadenceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenceData.swift; sourceTree = "<group>"; };
 		FE989D78282D4BE2009937D4 /* PaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceView.swift; sourceTree = "<group>"; };
 		FE989D7C282D4BFD009937D4 /* PoseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseData.swift; sourceTree = "<group>"; };
-		FE989D7F282D4D25009937D4 /* Repeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeat.swift; sourceTree = "<group>"; };
+		FE989D7F282D4D25009937D4 /* StartCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCountdown.swift; sourceTree = "<group>"; };
+		FEA6912528BEFAE500D272EB /* ChartDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataView.swift; sourceTree = "<group>"; };
 		FEB537F328698ACB00642B7F /* ConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectView.swift; sourceTree = "<group>"; };
 		FEB537F528698FE900642B7F /* ConnectFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFriendsView.swift; sourceTree = "<group>"; };
 		FEB73B1A282D5C090098E755 /* RunningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningView.swift; sourceTree = "<group>"; };
 		FEB73B36282D65F30098E755 /* RunningDataResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningDataResultView.swift; sourceTree = "<group>"; };
+		FEC5835228BF28C9001A8D59 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,8 +263,8 @@
 			children = (
 				FE1123DC28740A5E00CB09B7 /* MapView.swift */,
 				FE1123DE28740AA400CB09B7 /* LocationViewModel.swift */,
-				FE1123E22874205A00CB09B7 /* SpacialArrowView.swift */,
 				B8C71CD928B8C1D800A1EC78 /* MapViewController.swift */,
+				FE1123E22874205A00CB09B7 /* SpacialArrowView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -248,13 +272,12 @@
 		FE323ABF2869594C00F54ABD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FE6DDC7928BA6D3300ECB31C /* Login */,
 				FE3A436E28229D5B006F6F16 /* ContentView.swift */,
 				FE3A437A28229D87006F6F16 /* StartRunning */,
+				FE989D7E282D4D10009937D4 /* RunningNow */,
 				FE3A43812822A09B006F6F16 /* RunningData */,
 				FE3A43842822A0E8006F6F16 /* Settings */,
-				FE6DDC7928BA6D3300ECB31C /* Login */,
-				FE989D7E282D4D10009937D4 /* RepeatView */,
-				FE1123DB28740A5200CB09B7 /* Map */,
 				FE38E7DC285CD73300021DD4 /* PASTView */,
 			);
 			path = View;
@@ -264,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				FE6DDC9628BA92E900ECB31C /* UserInfomation.swift */,
+				FE664E5528BCD80F0027DFC2 /* LoginError.swift */,
+				FE7A8B5028BE6EE000AD8EDF /* RunningDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +296,7 @@
 		FE38E7DC285CD73300021DD4 /* PASTView */ = {
 			isa = PBXGroup;
 			children = (
+				B8B55CC528BA0E4F00C70A3C /* DataResultView.swift */,
 				FEB537F328698ACB00642B7F /* ConnectView.swift */,
 				FE6DDC7A28BA6D3300ECB31C /* MainPage.swift */,
 				FE6DDC7B28BA6D3300ECB31C /* LandingView.swift */,
@@ -282,6 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				FE6D7F7528BAB6D100CE3B7F /* MainPageViewModel.swift */,
+				FE664E5728BCE9160027DFC2 /* StateOfSometing.swift */,
+				FE7A8B5228BE918600AD8EDF /* RunningDataViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,6 +370,7 @@
 				FE692B842822C93400F9728A /* LeftButton.swift */,
 				FE692B862822C93900F9728A /* RightButton.swift */,
 				FE692B882822CD6900F9728A /* VibrationSpecialButton.swift */,
+				FE1123DB28740A5200CB09B7 /* Map */,
 			);
 			path = StartRunning;
 			sourceTree = "<group>";
@@ -349,11 +378,11 @@
 		FE3A437D28229E12006F6F16 /* IncisedView */ = {
 			isa = PBXGroup;
 			children = (
-				FE408A0828BB305C0086F5A9 /* DetailedView.swift */,
 				FE3A437F28229E48006F6F16 /* RunningManShape.swift */,
 				FE692B7C2822B87C00F9728A /* DataShape.swift */,
 				FE692B7E2822B8F100F9728A /* SettingsShape.swift */,
 				FE692B802822BFDF00F9728A /* TabBarView.swift */,
+				FE664E5128BCB6C20027DFC2 /* RefreshableScrollView.swift */,
 			);
 			path = IncisedView;
 			sourceTree = "<group>";
@@ -362,12 +391,11 @@
 			isa = PBXGroup;
 			children = (
 				FE3A43822822A0B1006F6F16 /* DataStaticsView.swift */,
+				FEA6912528BEFAE500D272EB /* ChartDataView.swift */,
+				FEC5835228BF28C9001A8D59 /* ChartView.swift */,
 				FE1C9B9B28BB539E0091AC28 /* TwoAvaterView.swift */,
-				FE989D74282D47E6009937D4 /* DataPreview.swift */,
-				FE989D76282D4819009937D4 /* CadenceData.swift */,
-				FE989D7C282D4BFD009937D4 /* PoseData.swift */,
-				FE989D78282D4BE2009937D4 /* PaceView.swift */,
-				B8B55CC928BA1B6F00C70A3C /* DataView.swift */,
+				FE7A8B4E28BE65CE00AD8EDF /* RectanglePieShapeView.swift */,
+				FE7A8B5428BEBCC100AD8EDF /* AbandonedViewCollection */,
 			);
 			path = RunningData;
 			sourceTree = "<group>";
@@ -388,6 +416,7 @@
 			children = (
 				FE6DDC7C28BA6D3300ECB31C /* EmailLogin.swift */,
 				FE6DDC8828BA72EC00ECB31C /* SignInWithAppleManager.swift */,
+				FE664E5328BCCC540027DFC2 /* EmailLoginFieldsView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -395,6 +424,7 @@
 		FE6DDC8428BA6E5200ECB31C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FE408A0828BB305C0086F5A9 /* DetailedView.swift */,
 				FE6DDC8528BA6E5200ECB31C /* FirebaseManager.swift */,
 				FE6D7F7728BB036A00CE3B7F /* FirebaseLoginFunctions.swift */,
 				FE6D7F7328BAAC4200CE3B7F /* ButtonView.swift */,
@@ -404,18 +434,32 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		FE989D7E282D4D10009937D4 /* RepeatView */ = {
+		FE7A8B5428BEBCC100AD8EDF /* AbandonedViewCollection */ = {
 			isa = PBXGroup;
 			children = (
-				FEB537F528698FE900642B7F /* ConnectFriendsView.swift */,
-				FE989D7F282D4D25009937D4 /* Repeat.swift */,
-				FE1123E028740ECA00CB09B7 /* PausePanel.swift */,
-				FEB73B1A282D5C090098E755 /* RunningView.swift */,
-				FE1123E42874231D00CB09B7 /* SpacialMapView.swift */,
-				FEB73B36282D65F30098E755 /* RunningDataResultView.swift */,
-				B8B55CC528BA0E4F00C70A3C /* DataResultView.swift */,
+				FE989D74282D47E6009937D4 /* DataPreview.swift */,
+				B8B55CC928BA1B6F00C70A3C /* DataView.swift */,
+				FE989D76282D4819009937D4 /* CadenceData.swift */,
+				FE989D7C282D4BFD009937D4 /* PoseData.swift */,
+				FE989D78282D4BE2009937D4 /* PaceView.swift */,
 			);
-			path = RepeatView;
+			path = AbandonedViewCollection;
+			sourceTree = "<group>";
+		};
+		FE989D7E282D4D10009937D4 /* RunningNow */ = {
+			isa = PBXGroup;
+			children = (
+				FE0DF45B28C0419B00614702 /* StaticCountDownView.swift */,
+				FE989D7F282D4D25009937D4 /* StartCountdown.swift */,
+				FEB73B1A282D5C090098E755 /* RunningView.swift */,
+				FE1123E028740ECA00CB09B7 /* PausePanel.swift */,
+				FEB73B36282D65F30098E755 /* RunningDataResultView.swift */,
+				FEB537F528698FE900642B7F /* ConnectFriendsView.swift */,
+				FE1123E42874231D00CB09B7 /* SpacialMapView.swift */,
+				FE7A8B4C28BE011A00AD8EDF /* DataRingView.swift */,
+				FE7A8B4A28BDF87A00AD8EDF /* RunningDataRingView.swift */,
+			);
+			path = RunningNow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,38 +625,50 @@
 				FE408A0928BB305C0086F5A9 /* DetailedView.swift in Sources */,
 				FE6DDC8628BA6E5200ECB31C /* FirebaseManager.swift in Sources */,
 				FE692B7F2822B8F100F9728A /* SettingsShape.swift in Sources */,
+				FE7A8B5328BE918600AD8EDF /* RunningDataViewModel.swift in Sources */,
 				FE1123DF28740AA400CB09B7 /* LocationViewModel.swift in Sources */,
 				B8B55CCA28BA1B6F00C70A3C /* DataView.swift in Sources */,
+				FE664E5828BCE9160027DFC2 /* StateOfSometing.swift in Sources */,
 				FE989D75282D47E7009937D4 /* DataPreview.swift in Sources */,
 				FEB537F428698ACB00642B7F /* ConnectView.swift in Sources */,
 				FE6DDC8B28BA7D8E00ECB31C /* ImagePicker.swift in Sources */,
+				FE7A8B4F28BE65CF00AD8EDF /* RectanglePieShapeView.swift in Sources */,
 				FE692B872822C93900F9728A /* RightButton.swift in Sources */,
-				FE989D80282D4D25009937D4 /* Repeat.swift in Sources */,
+				FE664E5628BCD80F0027DFC2 /* LoginError.swift in Sources */,
+				FE989D80282D4D25009937D4 /* StartCountdown.swift in Sources */,
 				FE6DDC7E28BA6D3300ECB31C /* LandingView.swift in Sources */,
+				FE7A8B4D28BE011A00AD8EDF /* DataRingView.swift in Sources */,
 				FE3A438028229E48006F6F16 /* RunningManShape.swift in Sources */,
 				FE3A43832822A0B1006F6F16 /* DataStaticsView.swift in Sources */,
 				FE6D7F7628BAB6D100CE3B7F /* MainPageViewModel.swift in Sources */,
 				FE6DDC7D28BA6D3300ECB31C /* MainPage.swift in Sources */,
 				FE6D7F7428BAAC4200CE3B7F /* ButtonView.swift in Sources */,
+				FE0DF45C28C0419B00614702 /* StaticCountDownView.swift in Sources */,
 				FE408A0728BB22650086F5A9 /* FriendsList.swift in Sources */,
 				FE3A436F28229D5B006F6F16 /* ContentView.swift in Sources */,
 				FE1123E128740ECA00CB09B7 /* PausePanel.swift in Sources */,
 				FEB73B1B282D5C090098E755 /* RunningView.swift in Sources */,
 				FEB537F628698FE900642B7F /* ConnectFriendsView.swift in Sources */,
+				FEC5835328BF28C9001A8D59 /* ChartView.swift in Sources */,
+				FEA6912628BEFAE500D272EB /* ChartDataView.swift in Sources */,
 				FE989D7D282D4BFD009937D4 /* PoseData.swift in Sources */,
 				FE6DDC8928BA72EC00ECB31C /* SignInWithAppleManager.swift in Sources */,
 				FE3A43872822A102006F6F16 /* SettingsView.swift in Sources */,
 				FEB73B37282D65F30098E755 /* RunningDataResultView.swift in Sources */,
 				FE989D77282D4819009937D4 /* CadenceData.swift in Sources */,
+				FE664E5428BCCC540027DFC2 /* EmailLoginFieldsView.swift in Sources */,
 				B8B55CC628BA0E4F00C70A3C /* DataResultView.swift in Sources */,
 				FE692B892822CD6900F9728A /* VibrationSpecialButton.swift in Sources */,
 				FE3A437C28229DA1006F6F16 /* StartView.swift in Sources */,
 				FE1C9BA128BBA9E30091AC28 /* DebugPageView.swift in Sources */,
 				FE692B832822C2F400F9728A /* ButtonRectangle.swift in Sources */,
 				FE3A436D28229D5B006F6F16 /* RunningApp.swift in Sources */,
+				FE664E5228BCB6C20027DFC2 /* RefreshableScrollView.swift in Sources */,
 				FE1C9B9C28BB539E0091AC28 /* TwoAvaterView.swift in Sources */,
 				FE989D79282D4BE2009937D4 /* PaceView.swift in Sources */,
+				FE7A8B5128BE6EE000AD8EDF /* RunningDataModel.swift in Sources */,
 				FE6DDC7F28BA6D3300ECB31C /* EmailLogin.swift in Sources */,
+				FE7A8B4B28BDF87A00AD8EDF /* RunningDataRingView.swift in Sources */,
 				FE1123E32874205A00CB09B7 /* SpacialArrowView.swift in Sources */,
 				FE1123E52874231D00CB09B7 /* SpacialMapView.swift in Sources */,
 				FE692B852822C93400F9728A /* LeftButton.swift in Sources */,
@@ -656,12 +712,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = watch_WatchKit_Extension;
 				INFOPLIST_FILE = watch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run With Me";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.yongfrank.Running;
 				MARKETING_VERSION = 0.1.0;
@@ -683,12 +739,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = watch_WatchKit_Extension;
 				INFOPLIST_FILE = watch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run With Me";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.yongfrank.Running;
 				MARKETING_VERSION = 0.1.0;
@@ -708,7 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"watch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				ENABLE_PREVIEWS = YES;
@@ -743,7 +799,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"watch WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				ENABLE_PREVIEWS = YES;
@@ -894,13 +950,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Running/RunningDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Running/Preview Content\"";
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Running/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run With Me";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "软件需要位置信息以展示所在的位置。";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location.";
@@ -908,8 +964,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -932,13 +989,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Running/RunningRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Running/Preview Content\"";
 				DEVELOPMENT_TEAM = L3P8YP4XRH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Running/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Run with Me";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run With Me";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "软件需要位置信息以展示所在的位置。";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location.";
@@ -946,8 +1003,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -14,6 +14,7 @@ import Kingfisher
 struct EmailLogin: View {
     let didCompleteLoginProcess: () -> ()
     
+    /// Email Logged in TextField
     @State private var emailTesting = false
     
     
@@ -44,35 +45,7 @@ struct EmailLogin: View {
                             .frame(minHeight: 110)
                     }
                     if emailTesting {
-                        VStack {
-                            TextField("用户名", text: $username)
-                                .textFieldStyle(.roundedBorder)
-                                .textInputAutocapitalization(.never)
-                                .disableAutocorrection(true)
-                            TextField("邮箱", text: $email)
-                                .textFieldStyle(.roundedBorder)
-                                .textInputAutocapitalization(.never)
-                                .disableAutocorrection(true)
-                            SecureField("密码", text: $password)
-                                .textFieldStyle(.roundedBorder)
-                            
-                            Button {
-                                registerUserWithEmail()
-                            } label: {
-                                loginButton(name: "注册")
-                            }
-                            .padding(.top)
-                            
-                            Button {
-                                loginUserWithEmail(email: email, password: password)
-                            } label: {
-                                loginButton(name: "登陆")
-                            }
-                        }
-                        .frame(width: 300, height: 300)
-                        .padding()
-                        .background(.ultraThinMaterial)
-                        .cornerRadius(30)
+                        emailTextFields
                     }
                 }
                 
@@ -100,14 +73,17 @@ struct EmailLogin: View {
                             }
                         }
                         
+                        vm.currentLogInUser?.email = self.email
+                        vm.currentLogInUser?.username = self.username
+                        
                         self.didCompleteLoginProcess()
                     }
                     
                     Button {
-                        loginUserWithEmail(email: UserInformation.accountExample.email, password: "123123")
+                        vm.isLocal = true
+                        vm.loginUserWithEmail(email: UserInformation.accountExample.email, password: "123123", isLocal: true)
                     } label: {
                         Text("测试账号")
-                            .foregroundColor(.yellow)
                     }
                     
                 }
@@ -126,23 +102,18 @@ struct EmailLogin: View {
             .background(Color(hex: "DF1876"))
             .ignoresSafeArea()
         }
-        
-        
-        
     }
     
-    
-    
-    func loginUserWithEmail(email: String, password: String) {
-        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                self.showingAlert = true
-                self.errorMessage = error.localizedDescription
-                return
-            }
-            self.didCompleteLoginProcess()
-        }
-    }
+//    func loginUserWithEmail(email: String, password: String) {
+//        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
+//            if let error = error {
+//                self.showingAlert = true
+//                self.errorMessage = error.localizedDescription
+//                return
+//            }
+//            self.didCompleteLoginProcess()
+//        }
+//    }
     
     func registerUserWithEmail() {
         if self.inputImage == nil || self.username == "" {
@@ -277,6 +248,38 @@ struct EmailLogin: View {
                 .font(.custom("PingFang SC Semibold", size: 36))
                 .foregroundColor(Color(#colorLiteral(red: 0.87, green: 0.09, blue: 0.46, alpha: 1))).tracking(30.09)
         }
+    }
+    
+    var emailTextFields: some View {
+        VStack {
+            TextField("用户名", text: $username)
+                .textFieldStyle(.roundedBorder)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+            TextField("邮箱", text: $email)
+                .textFieldStyle(.roundedBorder)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+            SecureField("密码", text: $password)
+                .textFieldStyle(.roundedBorder)
+            
+            Button {
+                registerUserWithEmail()
+            } label: {
+                loginButton(name: "注册")
+            }
+            .padding(.top)
+            
+            Button {
+                vm.loginUserWithEmail(email: email, password: password)
+            } label: {
+                loginButton(name: "登陆")
+            }
+        }
+        .frame(width: 300, height: 300)
+        .padding()
+        .background(.ultraThinMaterial)
+        .cornerRadius(30)
     }
 }
 

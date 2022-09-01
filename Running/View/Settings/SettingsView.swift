@@ -8,6 +8,10 @@
 import SwiftUI
 import Kingfisher
 
+enum SettingsConstants: String {
+    case friendsList = "助跑列表", editInfo = "编辑信息", debugApp = "软件测试", logOutCurrentUser = "退出"
+}
+
 struct SettingsView: View {
     @EnvironmentObject var vm: MainPageViewMode
     //    @ObservedObject var viewModel = MainPageViewMode()
@@ -19,95 +23,106 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                HStack(alignment: .center) {
-                    if let user = vm.currentLogInUser {
-                        KFImage(URL(string: user.profileImageUrl))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 76, height: 76)
-                            .cornerRadius(64)
-                            .overlay(
-                                DetailedView.overlayBorder()
-                            )
-                    } else {
-                        Image(UserInformation.EXAMPLE.profileImageUrl)
-                            .resizable()
-                            .frame(width: 76, height: 76)
-                            .overlay(
-                                DetailedView.overlayBorder()
-                            )
-                    }
-                    
-                    Text(vm.currentLogInUser?.username ?? "")
-                        .font(.custom("PingFang SC Regular", size: 25))
-                        .padding(.horizontal)
-                        .frame(minWidth: 80)
-                    
-                    
-                    
-                    Button {
-                        self.isEditMode = true
-                    } label: {
-                        ButtonViewTemplate.buttonView(name: "编辑信息")
-                            .frame(width: 131, height: 63)
-                            .offset(x: 0, y: 3)
-                    }
-                }
-                .padding(.horizontal, 25)
-                .padding(.top, 50)
-                .padding(.bottom, 73)
-                
-                NavigationLink() {
-                    DebugPageView()
-                } label: {
-                    ButtonViewTemplate.barButtonView(name: "软件测试")
-                        .frame(width: 311, height: 67)
-                }
-                
-                NavigationLink() {
-                    FriendsList()
-                } label: {
-                    ButtonViewTemplate.barButtonView(name: "助跑列表")
-                        .frame(width: 311, height: 67)
-                }
-                
-                ForEach(settingsText, id: \.self) { item in
-                    Button {
+            GeometryReader { geo in
+                ScrollView {
+                    HStack(alignment: .center) {
                         
+                        profileImage
+                        
+                        Text(vm.currentLogInUser?.username ?? "")
+                            .font(.custom("PingFang SC Regular", size: 25))
+                            .padding(.horizontal)
+                            .frame(minWidth: 80)
+                        
+                        Button {
+                            self.isEditMode = true
+                        } label: {
+                            ButtonViewTemplate.buttonView(name: SettingsConstants.editInfo.rawValue)
+                                .frame(width: 131, height: 63)
+                                .offset(x: 0, y: 3)
+                        }
+                    }
+                    .padding(.horizontal, 25)
+                    .padding(.top, 50)
+                    .padding(.bottom, 73)
+                    
+                    if vm.isShowingDebuggingMode {
+                        NavigationLink() {
+                            DebugPageView()
+                        } label: {
+                            ButtonViewTemplate.barButtonView(name: SettingsConstants.debugApp.rawValue)
+                                .frame(width: 311, height: 67)
+                        }
+                    }
+                    
+                    NavigationLink() {
+                        FriendsList()
                     } label: {
-                        ButtonViewTemplate.barButtonView(name: item)
+                        ButtonViewTemplate.barButtonView(name: "助跑列表")
                             .frame(width: 311, height: 67)
                     }
-                }
-                
-                
-                Button {
-                    vm.handleSignOut()
-                    print("DEBUG: Logged out successfuly")
                     
-                } label: {
-                    ButtonViewTemplate.barButtonView(name: "退出")
-                        .frame(width: 311, height: 67)
-                        .padding()
+                    ForEach(settingsText, id: \.self) { item in
+                        Button {
+                            
+                        } label: {
+                            ButtonViewTemplate.barButtonView(name: item)
+                                .frame(width: 311, height: 67)
+                        }
+                    }
+                    
+                    
+                    Button {
+                        vm.handleSignOut()
+                        print("DEBUG: Logged out successfuly")
+                    } label: {
+                        ButtonViewTemplate.barButtonView(name: SettingsConstants.logOutCurrentUser.rawValue)
+                            .frame(width: 311, height: 67)
+                    }
+                    .padding()
+                    
                 }
                 .fullScreenCover(isPresented: $isEditMode) {
                     EditMode()
                 }
+                .frame(width: geo.size.width)
+                .navigationBarTitleDisplayMode(.inline)
             }
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
-    func editInformation() {
-        
+    var profileImage: some View {
+        Group {
+            if let user = vm.currentLogInUser {
+                KFImage(URL(string: user.profileImageUrl))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 76, height: 76)
+                    .cornerRadius(64)
+                    .overlay(
+                        DetailedView.overlayBorder()
+                    )
+            } else {
+                Image(UserInformation.EXAMPLE.profileImageUrl)
+                    .resizable()
+                    .frame(width: 76, height: 76)
+                    .overlay(
+                        DetailedView.overlayBorder()
+                    )
+            }
+        }
     }
 }
+
+func editInformation() {
+    
+}
+
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
             .environmentObject(MainPageViewMode())
-
+        
     }
 }
