@@ -33,7 +33,7 @@ struct RunningDataModel {
         .runningGroundContactTime: Int.random(in: 73..<86),
         .runningVerticalOscillation: Int.random(in: 70..<92)
     ]
-    var rateWords = ["相较于上次步频配合有进步，平均配合度达到了\(Int.random(in: 75..<95))%", "相较于上次步频配合有进步，平均配合度达到了\(Int.random(in: 75..<95))%", "相较于上次步频配合有进步，平均配合度达到了\(Int.random(in: 75..<95))%"]
+    var rateWords = ["相较于上次步长配合有进步，平均配合度达到了\(Int.random(in: 75..<95))%", "相较于上次触地时间有进步，平均配合度达到了\(Int.random(in: 75..<95))%", "相较于上次步频配合有进步，平均配合度达到了\(Int.random(in: 75..<95))%"]
     
     enum DataDisplay {
         case runningStrideLength, runningGroundContactTime, runningVerticalOscillation

@@ -12,7 +12,6 @@ enum FourTimeOptions: String {
 }
 
 struct TypeOfChartData {
-    
     let type: FourTimeOptions
     var nameOfImage: String {
         switch type {
@@ -29,6 +28,56 @@ struct TypeOfChartData {
 protocol TypeOfTimeDisplayProtocol {
 //    var options: [ChartTimeOptions] { get set }
     var headerTitle: String { get }
+}
+
+struct DataOfCharts: Identifiable {
+    let id = UUID()
+    let coopration: Int
+    let date: Date
+    var animate = false
+    
+    let coopration2: Int
+    let date2: Date
+    
+    var average: Int {
+        (coopration + coopration2) / 2
+    }
+}
+func generateData(type: FourTimeOptions) -> [DataOfCharts] {
+    var day = 0
+    var data = [DataOfCharts]()
+    switch type {
+    case.week:
+        day = 7
+    case.month:
+        day = 30
+    case.year:
+        day = 12
+    }
+    
+//    let dateFormatter = DateFormatter()
+//    dateFormatter.timeStyle = DateFormatter.Style.none
+//    dateFormatter.dateStyle = DateFormatter.Style.short
+//    let components = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+//    let date = Calendar.current.date(from: components)
+    
+    for i in 1...day {
+        switch type {
+        case .week:
+            data.append(
+                .init(coopration: .random(in: 60..<95), date: Calendar.current.date(byAdding: .day, value: -i, to: Date())!, coopration2: .random(in: 60..<95), date2: Calendar.current.date(byAdding: .day, value: -i, to: Date())!)
+            )
+        case .month:
+            data.append(
+                .init(coopration: .random(in: 60..<95), date: Calendar.current.date(byAdding: .day, value: -i, to: Date())!, coopration2: .random(in: 60..<95), date2: Calendar.current.date(byAdding: .day, value: -i, to: Date())!)
+            )
+        case .year:
+            data.append(
+                .init(coopration: .random(in: 60..<95), date: Calendar.current.date(byAdding: .month, value: -i, to: Date())!, coopration2: .random(in: 60..<95), date2: Calendar.current.date(byAdding: .month, value: -i, to: Date())!)
+            )
+        }
+    }
+    return data
 }
 
 extension RunningDataViewModel {
@@ -60,12 +109,16 @@ extension RunningDataViewModel {
         var recommendationString: String {
             switch self.typeOfTimeOptions {
             case .week:
-                return "本周\(self.recommendationsExample.shuffled()[0])"
+                return "本周配合度"
             case .month:
-                return "\(self.recommendationsExample.shuffled()[0])"
+                return "本月配合度"
             case .year:
-                return "最近一年\(self.recommendationsExample.shuffled()[0])"
+                return "整体配合度"
             }
+        }
+        
+        func trendState() {
+            
         }
         
         private let recommendationsExample: [String] = [
@@ -130,14 +183,10 @@ final class RunningDataViewModel: ObservableObject {
         if second > 60 {
             min = second / 60
         }
-        if second > 2500 {
-            return "∞"
+        if sec < 10 {
+            return "\(min)'0\(sec)"
         } else {
-            if sec < 10 {
-                return "\(min)'0\(sec)"
-            } else {
-                return "\(min)'\(sec)"
-            }
+            return "\(min)'\(sec)"
         }
         
     }

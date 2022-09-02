@@ -12,7 +12,7 @@ struct MapView: View {
     @StateObject var vm = LocationViewModel()
     @State var locations = [Location]()
     var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-    let annotationTimer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    let annotationTimer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     var body: some View {
 //        Map(coordinateRegion: $vm.region, showsUserLocation: true)
         Map(coordinateRegion: $vm.region, showsUserLocation: true, annotationItems: locations) { location in

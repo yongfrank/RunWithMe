@@ -10,15 +10,16 @@ import SwiftUI
 struct GridItemPausePannelView: View {
     var dataString: String
     let descriptionString: String
+    var foregroundColor: Color = .white
     var body: some View {
         VStack {
             Text(dataString)
                 .font(.largeTitle)
                 .fontWeight(.semibold)
-                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))).tracking(-0.41)
+                .foregroundColor(foregroundColor)
             Text(descriptionString)
                 .font(.body)
-                .foregroundColor(.white)
+                .foregroundColor(foregroundColor)
         }
         .accessibilityElement(children: .combine)
         .padding(.vertical, 5)
@@ -45,10 +46,10 @@ struct PausePannelView: View {
                             .padding(.vertical, 5)
                     }
                     LazyVGrid(columns: columns) {
-                        TimeDataDetailed()
-                        DistaceDetailed()
-                        AveragedSpeed()
-                        HeartRateDetailed()
+                        TimeDataDetailed(foregroundColor: .white)
+                        DistaceDetailed(foregroundColor: .white)
+                        AveragedSpeed(foregroundColor: .white)
+                        HeartRateDetailed(foregroundColor: .white)
                     }
                 }
             }

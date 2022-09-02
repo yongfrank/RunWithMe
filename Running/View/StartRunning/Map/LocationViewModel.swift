@@ -27,11 +27,13 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
 
     func checkIfLocationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-        } else {
-            print("Location Services does not enable.")
+        DispatchQueue.main.async {
+            if CLLocationManager.locationServicesEnabled() {
+                self.locationManager = CLLocationManager()
+                self.locationManager!.delegate = self
+            } else {
+                print("Location Services does not enable.")
+            }
         }
     }
 

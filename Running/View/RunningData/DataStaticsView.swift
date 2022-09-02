@@ -74,6 +74,7 @@ struct DataStaticsView: View {
                         }
                     }
                 }
+//                .frame(width: 400, height: 470)
             }
             .padding(.bottom)
             .navigationBarHidden(true)

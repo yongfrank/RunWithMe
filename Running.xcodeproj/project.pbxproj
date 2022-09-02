@@ -28,6 +28,12 @@
 		FE1C9B9C28BB539E0091AC28 /* TwoAvaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C9B9B28BB539E0091AC28 /* TwoAvaterView.swift */; };
 		FE1C9B9F28BBA9230091AC28 /* EditMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C9B9E28BBA9230091AC28 /* EditMode.swift */; };
 		FE1C9BA128BBA9E30091AC28 /* DebugPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C9BA028BBA9E30091AC28 /* DebugPageView.swift */; };
+		FE1E78F128C1832400A7FC7E /* ChartAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E78F028C1832400A7FC7E /* ChartAnimateView.swift */; };
+		FE1E78F328C1868800A7FC7E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E78F228C1868800A7FC7E /* StartView.swift */; };
+		FE1E78F528C1869800A7FC7E /* RunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E78F428C1869800A7FC7E /* RunView.swift */; };
+		FE1E78F728C186AA00A7FC7E /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E78F628C186AA00A7FC7E /* DataView.swift */; };
+		FE1E78F928C1A00E00A7FC7E /* VarianceCalculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1E78F828C1A00E00A7FC7E /* VarianceCalculate.swift */; };
+		FE1E78FC28C1A55A00A7FC7E /* SigmaSwiftStatistics in Frameworks */ = {isa = PBXBuildFile; productRef = FE1E78FB28C1A55A00A7FC7E /* SigmaSwiftStatistics */; };
 		FE3A436D28229D5B006F6F16 /* RunningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A436C28229D5B006F6F16 /* RunningApp.swift */; };
 		FE3A436F28229D5B006F6F16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A436E28229D5B006F6F16 /* ContentView.swift */; };
 		FE3A437428229D5C006F6F16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE3A437328229D5C006F6F16 /* Preview Assets.xcassets */; };
@@ -150,6 +156,11 @@
 		FE1C9B9D28BB852E0091AC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FE1C9B9E28BBA9230091AC28 /* EditMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMode.swift; sourceTree = "<group>"; };
 		FE1C9BA028BBA9E30091AC28 /* DebugPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugPageView.swift; sourceTree = "<group>"; };
+		FE1E78F028C1832400A7FC7E /* ChartAnimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAnimateView.swift; sourceTree = "<group>"; };
+		FE1E78F228C1868800A7FC7E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		FE1E78F428C1869800A7FC7E /* RunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunView.swift; sourceTree = "<group>"; };
+		FE1E78F628C186AA00A7FC7E /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		FE1E78F828C1A00E00A7FC7E /* VarianceCalculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VarianceCalculate.swift; sourceTree = "<group>"; };
 		FE38E7E6285CDA2E00021DD4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FE3A436928229D5B006F6F16 /* Running.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Running.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE3A436C28229D5B006F6F16 /* RunningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningApp.swift; sourceTree = "<group>"; };
@@ -220,6 +231,7 @@
 				FEE964D128BA328F00798923 /* FirebaseAuth in Frameworks */,
 				FEE964D728BA328F00798923 /* FirebaseStorage in Frameworks */,
 				FEE964D328BA328F00798923 /* FirebaseFirestore in Frameworks */,
+				FE1E78FC28C1A55A00A7FC7E /* SigmaSwiftStatistics in Frameworks */,
 				FEE964D528BA328F00798923 /* FirebaseFirestoreSwift in Frameworks */,
 				FE6DDC9A28BA9F3300ECB31C /* Kingfisher in Frameworks */,
 			);
@@ -240,8 +252,11 @@
 		B822317428B8A37100AEB886 /* watch WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B822317528B8A37100AEB886 /* ContentView.swift */,
 				B822317728B8A37100AEB886 /* RunningApp.swift */,
+				B822317528B8A37100AEB886 /* ContentView.swift */,
+				FE1E78F228C1868800A7FC7E /* StartView.swift */,
+				FE1E78F428C1869800A7FC7E /* RunView.swift */,
+				FE1E78F628C186AA00A7FC7E /* DataView.swift */,
 				B822317928B8A37100AEB886 /* ComplicationController.swift */,
 				B822317B28B8A37200AEB886 /* Assets.xcassets */,
 				B822318028B8A37200AEB886 /* Info.plist */,
@@ -286,6 +301,7 @@
 		FE38E7DA285CD72700021DD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FE1E78F828C1A00E00A7FC7E /* VarianceCalculate.swift */,
 				FE6DDC9628BA92E900ECB31C /* UserInfomation.swift */,
 				FE664E5528BCD80F0027DFC2 /* LoginError.swift */,
 				FE7A8B5028BE6EE000AD8EDF /* RunningDataModel.swift */,
@@ -395,6 +411,7 @@
 				FEC5835228BF28C9001A8D59 /* ChartView.swift */,
 				FE1C9B9B28BB539E0091AC28 /* TwoAvaterView.swift */,
 				FE7A8B4E28BE65CE00AD8EDF /* RectanglePieShapeView.swift */,
+				FE1E78F028C1832400A7FC7E /* ChartAnimateView.swift */,
 				FE7A8B5428BEBCC100AD8EDF /* AbandonedViewCollection */,
 			);
 			path = RunningData;
@@ -520,6 +537,7 @@
 				FEE964D428BA328F00798923 /* FirebaseFirestoreSwift */,
 				FEE964D628BA328F00798923 /* FirebaseStorage */,
 				FE6DDC9928BA9F3300ECB31C /* Kingfisher */,
+				FE1E78FB28C1A55A00A7FC7E /* SigmaSwiftStatistics */,
 			);
 			productName = Running;
 			productReference = FE3A436928229D5B006F6F16 /* Running.app */;
@@ -559,6 +577,7 @@
 			packageReferences = (
 				FEE964CF28BA328F00798923 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FE6DDC9828BA9F3300ECB31C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FE1E78FA28C1A55A00A7FC7E /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */,
 			);
 			productRefGroup = FE3A436A28229D5B006F6F16 /* Products */;
 			projectDirPath = "";
@@ -607,9 +626,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1E78F728C186AA00A7FC7E /* DataView.swift in Sources */,
 				B822317628B8A37100AEB886 /* ContentView.swift in Sources */,
+				FE1E78F528C1869800A7FC7E /* RunView.swift in Sources */,
 				B822317828B8A37100AEB886 /* RunningApp.swift in Sources */,
 				B822317A28B8A37100AEB886 /* ComplicationController.swift in Sources */,
+				FE1E78F328C1868800A7FC7E /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +644,7 @@
 				FE692B812822BFDF00F9728A /* TabBarView.swift in Sources */,
 				FE1123DD28740A5E00CB09B7 /* MapView.swift in Sources */,
 				FE1C9B9F28BBA9230091AC28 /* EditMode.swift in Sources */,
+				FE1E78F928C1A00E00A7FC7E /* VarianceCalculate.swift in Sources */,
 				FE408A0928BB305C0086F5A9 /* DetailedView.swift in Sources */,
 				FE6DDC8628BA6E5200ECB31C /* FirebaseManager.swift in Sources */,
 				FE692B7F2822B8F100F9728A /* SettingsShape.swift in Sources */,
@@ -654,6 +677,7 @@
 				FE989D7D282D4BFD009937D4 /* PoseData.swift in Sources */,
 				FE6DDC8928BA72EC00ECB31C /* SignInWithAppleManager.swift in Sources */,
 				FE3A43872822A102006F6F16 /* SettingsView.swift in Sources */,
+				FE1E78F128C1832400A7FC7E /* ChartAnimateView.swift in Sources */,
 				FEB73B37282D65F30098E755 /* RunningDataResultView.swift in Sources */,
 				FE989D77282D4819009937D4 /* CadenceData.swift in Sources */,
 				FE664E5428BCCC540027DFC2 /* EmailLoginFieldsView.swift in Sources */,
@@ -728,7 +752,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -755,7 +779,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -790,7 +814,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -825,7 +849,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -968,7 +992,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1007,7 +1031,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1063,6 +1087,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FE1E78FA28C1A55A00A7FC7E /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/SigmaSwiftStatistics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		FE6DDC9828BA9F3300ECB31C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1082,6 +1114,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FE1E78FB28C1A55A00A7FC7E /* SigmaSwiftStatistics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE1E78FA28C1A55A00A7FC7E /* XCRemoteSwiftPackageReference "SigmaSwiftStatistics" */;
+			productName = SigmaSwiftStatistics;
+		};
 		FE6DDC9928BA9F3300ECB31C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FE6DDC9828BA9F3300ECB31C /* XCRemoteSwiftPackageReference "Kingfisher" */;

@@ -8,34 +8,6 @@
 import SwiftUI
 import Kingfisher
 
-struct TimeDataDetailed: View {
-    @EnvironmentObject var vm: RunningDataViewModel
-    var body: some View {
-        GridItemPausePannelView(dataString: String(vm.getTime(second: vm.data.totalTime)), descriptionString: "总时长")
-            .accessibilityLabel("总时长\(vm.getAccessibilityTime(second: vm.data.totalTime))")
-    }
-}
-
-struct DistaceDetailed: View {
-    @EnvironmentObject var vm: RunningDataViewModel
-    var body: some View {
-        GridItemPausePannelView(dataString: String(vm.getDistance(distance: vm.data.distance)), descriptionString: "公里")
-    }
-}
-
-struct AveragedSpeed: View {
-    @EnvironmentObject var vm: RunningDataViewModel
-    var body: some View {
-        GridItemPausePannelView(dataString: String(vm.getMinSec(second: vm.data.avgPace)), descriptionString: "平均配速")
-    }
-}
-
-struct HeartRateDetailed: View {
-    @EnvironmentObject var vm: RunningDataViewModel
-    var body: some View {
-        GridItemPausePannelView(dataString: String(vm.data.heartRate), descriptionString: "心率")
-    }
-}
 
 class DetailedView {
     

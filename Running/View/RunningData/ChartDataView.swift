@@ -7,60 +7,6 @@
 
 import SwiftUI
 
-struct ChartView: View {
-    let smallSection: RunningDataViewModel.TypeOfTimeDisplay
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(smallSection.headerTitle)
-                    .font(.title2)
-                    .bold()
-                Text(smallSection.headerDateString)
-                    .font(.caption2)
-            }
-            self.backgroundPink(height: 140)
-        }
-    }
-    
-    func backgroundPink(height: CGFloat) -> some View {
-        ZStack(alignment: .top) {
-            
-            RoundedRectangle(cornerRadius: 20)
-                .fill(
-                    Color(#colorLiteral(red: 0.9215686321258545, green: 0.9215686321258545, blue: 0.9215686321258545, alpha: 1))
-                )
-            
-            //            .frame(maxHeight: height)
-            VStack(alignment: .leading) {
-                ZStack {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(
-                        Color(#colorLiteral(red: 0.8745098114013672, green: 0.09411764144897461, blue: 0.46122294664382935, alpha: 1))
-                    )
-                    .shadow(color: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.15000000596046448)), radius:20, x:2, y:8)
-                    Image(smallSection.typeOfChartData.nameOfImage)
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                }
-                
-                Text(smallSection.recommendationString)
-                    .font(.caption2)
-                    .padding(.bottom, 5)
-                    .padding(.horizontal, 20)
-            }
-        }
-        .padding(.vertical, 5)
-    }
-}
-
-
-struct CharView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartView(smallSection: .init(typeOfTimeDisplay: .week))
-    }
-}
-
 struct ChartDataView: View {
     
     let contentType: RunningDataModel.DataDisplay
@@ -98,7 +44,7 @@ struct ChartDataView: View {
             }
             
             ForEach(runDataVM.typeOfTimeDisplayData.indices, id: \.self) { index in
-                ChartView(smallSection: runDataVM.typeOfTimeDisplayData[index])
+                ChartView(smallSection: runDataVM.typeOfTimeDisplayData[index], data: generateData(type: runDataVM.typeOfTimeDisplayData[index].typeOfTimeOptions))
             }
             .padding(.horizontal)
             
