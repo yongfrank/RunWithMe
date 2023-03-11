@@ -65,7 +65,7 @@ struct RunningView: View {
                 if state.buttonState == "Pause" {
                     Button {
 //                        //暂停发送通知到地图页面，
-                        NotificationCenter.default.post(name: NSNotification.Name("PAUSERUN"), object: nil)
+//                        NotificationCenter.default.post(name: NSNotification.Name("PAUSERUN"), object: nil)
                         state.buttonState = "PauseView"
                         runDataVM.pauseTimeCounting()
                     } label: {
@@ -128,6 +128,7 @@ struct RunningView: View {
                         timerCount = 5
                     }
                     timerCount -= 1
+//                    print("DEBUG: Timer Count \(timerCount)")
                 } else if motionHandler.yaw > 0.2 {
                     if timerCount % 5 == 0 {
                         soundHandler.playSound(utterance: soundHandler.leftUtterance)
@@ -136,6 +137,7 @@ struct RunningView: View {
                         timerCount = 5
                     }
                     timerCount -= 1
+//                    print("DEBUG: Timer Count \(timerCount)")
                 } else {
                     timerCount = 5
                 }
